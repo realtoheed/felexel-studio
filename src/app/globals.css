@@ -1,26 +1,147 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --bg: #0a0a0f;
+  --surface: #13131c;
+  --surface-2: #191924;
+  --text: #f3f3f7;
+  --text-dim: #9d9dae;
+  --accent: #a855f7;
+  --accent-2: #7c3aed;
+  --accent-3: #c4b5fd;
+}
+
+.light {
+  --bg: #f7f6fb;
+  --surface: #ffffff;
+  --surface-2: #f0edf9;
+  --text: #17131f;
+  --text-dim: #5b5570;
+  --accent: #9333ea;
+  --accent-2: #7c3aed;
+  --accent-3: #7e22ce;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-text: var(--text);
+  --color-text-dim: var(--text-dim);
+  --color-accent: var(--accent);
+  --color-accent-2: var(--accent-2);
+  --color-accent-3: var(--accent-3);
+  --font-display: var(--font-space-grotesk);
+  --font-sans: var(--font-inter);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  background: var(--bg);
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-inter), sans-serif;
+  overflow-x: hidden;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-space-grotesk), sans-serif;
+  letter-spacing: -0.02em;
+}
+
+::selection {
+  background: var(--accent);
+  color: #fff;
+}
+
+.grad-text {
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.grad-bg {
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+}
+
+/* Styles for markdown rendered from the CMS (legal pages, blog posts). */
+.prose-cms {
+  color: var(--text-dim);
+  font-size: 15.5px;
+  line-height: 1.75;
+}
+.prose-cms > * + * {
+  margin-top: 1.25rem;
+}
+.prose-cms h2 {
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: var(--text);
+  margin-top: 2.5rem;
+}
+.prose-cms h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--text);
+  margin-top: 2rem;
+}
+.prose-cms strong {
+  color: var(--text);
+  font-weight: 600;
+}
+.prose-cms a {
+  color: var(--accent-3);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.prose-cms ul,
+.prose-cms ol {
+  padding-left: 1.35rem;
+}
+.prose-cms ul {
+  list-style: disc;
+}
+.prose-cms ol {
+  list-style: decimal;
+}
+.prose-cms li + li {
+  margin-top: 0.5rem;
+}
+.prose-cms blockquote {
+  border-left: 3px solid var(--accent);
+  padding-left: 1rem;
+  font-style: italic;
+}
+.prose-cms img {
+  border-radius: 16px;
+}
+.prose-cms code {
+  background: color-mix(in srgb, var(--text-dim) 12%, transparent);
+  padding: 0.15em 0.4em;
+  border-radius: 6px;
+  font-size: 0.9em;
+}
+
+.noise-overlay {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.035;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--surface-2);
+  border-radius: 10px;
 }

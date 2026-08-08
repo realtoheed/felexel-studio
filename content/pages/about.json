@@ -1,0 +1,23 @@
+{
+  "eyebrow": "WHO WE ARE",
+  "title": "Welcome to Felexel",
+  "body": "Felexel Creative Studio is a full-service creative production house working with streamers, gaming brands and businesses worldwide. From the first sketch to the final delivered file, our team of designers and animators handle every step so your brand looks unmistakably professional.",
+  "image": { "src": "/images/about-workspace.jpg", "alt": "Felexel Creative Studio workspace" },
+  "bullets": [
+    { "item": "Dedicated project management from brief to delivery" },
+    { "item": "In-house designers, illustrators & animators" },
+    { "item": "Unlimited revisions until you're happy" }
+  ],
+  "expertise": {
+    "eyebrow": "OUR EXPERTISE",
+    "title": "Where our craft runs deep",
+    "items": [
+      { "icon": "palette", "label": "Design" },
+      { "icon": "clapperboard", "label": "Animation" },
+      { "icon": "code", "label": "Website Development" },
+      { "icon": "radio", "label": "Gaming Overlays" },
+      { "icon": "smile", "label": "Emotes & Badges" },
+      { "icon": "shapes", "label": "Mascot Logos" }
+    ]
+  }
+}

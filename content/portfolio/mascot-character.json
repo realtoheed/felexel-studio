@@ -1,0 +1,9 @@
+{
+  "order": 3,
+  "label": "Mascot Character",
+  "tag": "Animation",
+  "image": {
+    "src": "/images/portfolio-3.jpg",
+    "alt": "Mascot Character"
+  }
+}

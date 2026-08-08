@@ -1,0 +1,14 @@
+{
+  "order": 2,
+  "name": "Growth",
+  "price": "From $149",
+  "featured": true,
+  "badge": "Most Popular",
+  "features": [
+    { "item": "Full Overlay + Panel Set" },
+    { "item": "Unlimited Revisions" },
+    { "item": "Priority Support" },
+    { "item": "5-7 Day Delivery" }
+  ],
+  "ctaLabel": "Choose Plan"
+}

@@ -1,0 +1,13 @@
+{
+  "order": 3,
+  "name": "Studio",
+  "price": "From $399",
+  "featured": false,
+  "features": [
+    { "item": "Full Brand + Animation Package" },
+    { "item": "Dedicated Project Manager" },
+    { "item": "Unlimited Revisions" },
+    { "item": "7-14 Day Delivery" }
+  ],
+  "ctaLabel": "Choose Plan"
+}

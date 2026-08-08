@@ -1,0 +1,13 @@
+{
+  "order": 1,
+  "name": "Starter",
+  "price": "From $49",
+  "featured": false,
+  "features": [
+    { "item": "Logo or Emote Design" },
+    { "item": "2 Revisions" },
+    { "item": "3-5 Day Delivery" },
+    { "item": "Source Files Included" }
+  ],
+  "ctaLabel": "Choose Plan"
+}

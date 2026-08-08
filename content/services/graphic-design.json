@@ -1,0 +1,99 @@
+{
+  "order": 2,
+  "slug": "graphic-design",
+  "label": "Graphic Design",
+  "shortLabel": "graphic design",
+  "icon": "palette",
+  "navDesc": "Logos, banners, brand kits & streaming graphics",
+  "eyebrow": "GRAPHIC DESIGN SERVICES",
+  "title": "Graphic Design",
+  "heroImage": {
+    "src": "/images/svc-graphic.jpg",
+    "alt": "Graphic Design showcase"
+  },
+  "galleryImage": {
+    "src": "/images/svc-graphic-2.jpg",
+    "alt": "Graphic Design process"
+  },
+  "intro": "First impressions matter. A strong visual identity is often the difference between a brand that gets remembered and one that gets scrolled past. Our designers craft clean, purposeful graphics built around your brand's personality.",
+  "intro2": "Felexel helps businesses and streamers build a consistent, professional look across every touchpoint — from your logo to your channel panels — so your brand looks unmistakably put-together everywhere it shows up.",
+  "offerings": [
+    {
+      "title": "Logo Design",
+      "desc": "Distinctive, memorable logos built to represent your brand across every platform and size."
+    },
+    {
+      "title": "Banner Design",
+      "desc": "Eye-catching banners for websites, social media, and marketplaces that convert browsers into buyers."
+    },
+    {
+      "title": "Brand Identity Kits",
+      "desc": "Complete brand guidelines — color palette, typography, and usage rules — for a consistent look everywhere."
+    },
+    {
+      "title": "Twitch Panels",
+      "desc": "Clean, informative channel panels that keep your Twitch page organized and on-brand."
+    },
+    {
+      "title": "Business Cards",
+      "desc": "Professional print-ready business card designs that leave a lasting impression."
+    },
+    {
+      "title": "Social Media Kits",
+      "desc": "Cohesive post templates, covers, and profile assets for a unified social media presence."
+    },
+    {
+      "title": "Packaging Design",
+      "desc": "Product packaging design that stands out on shelves and strengthens brand recognition."
+    },
+    {
+      "title": "Merch Design",
+      "desc": "Print-ready apparel and merchandise designs that your audience will actually want to wear."
+    },
+    {
+      "title": "Print Design",
+      "desc": "Flyers, brochures, and posters designed for maximum impact in print."
+    }
+  ],
+  "ctaHeading": "Bringing Your Brand To Life Through Design",
+  "ctaSub": "At our design studio, we know how important it is to get every pixel right — for you and your audience.",
+  "benefitsTitle": "Brand Identity & Streaming Graphics",
+  "benefitsIntro": "Felexel designs a complete visual identity for your script, storyline, and products. We create unique, customizable graphics that complement your brand and convey your message effectively.",
+  "benefits": [
+    {
+      "item": "Impactful visuals and supreme audience reach"
+    },
+    {
+      "item": "Guaranteed quality work and budget-friendly packages"
+    },
+    {
+      "item": "Piloting your brand to life through considered design"
+    },
+    {
+      "item": "Cost-effective and time-saving turnaround"
+    },
+    {
+      "item": "Updated, on-trend graphic design styles"
+    }
+  ],
+  "extraSectionTitle": "Streaming Graphics",
+  "extraSectionIntro": "Purpose-built static graphics for streamers and content creators.",
+  "extraItems": [
+    {
+      "title": "Static Emotes",
+      "desc": "Expressive static Twitch emotes that give your community a way to react in your own style."
+    },
+    {
+      "title": "Overlay Graphics",
+      "desc": "Full stream overlay sets — webcam frames, chat boxes, and info panels — matched to your brand."
+    },
+    {
+      "title": "Alert Graphics",
+      "desc": "On-brand follow, sub, and donation alert graphics that fit seamlessly into your stream."
+    },
+    {
+      "title": "Screen Graphics",
+      "desc": "Starting soon, BRB, and ending screens designed to keep your stream looking professional."
+    }
+  ]
+}

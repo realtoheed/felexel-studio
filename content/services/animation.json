@@ -1,0 +1,99 @@
+{
+  "order": 1,
+  "slug": "animation",
+  "label": "Animation",
+  "shortLabel": "animation",
+  "icon": "clapperboard",
+  "navDesc": "2D/3D animation, motion graphics & explainer videos",
+  "eyebrow": "ANIMATION SERVICES",
+  "title": "Animation",
+  "heroImage": {
+    "src": "/images/svc-animation.jpg",
+    "alt": "Animation showcase"
+  },
+  "galleryImage": {
+    "src": "/images/svc-animation-2.jpg",
+    "alt": "Animation process"
+  },
+  "intro": "Merging professional skills, quality editing, fascinating effects, and several animation styles. Most viewers don't have time to read about your product — a video explaining what your brand is about helps customers make quicker decisions and develop interest in purchasing.",
+  "intro2": "Felexel will help put life into characters, props, and environments. We're experienced in video animation services and simplifying your product, no matter which category it belongs to, resulting in faster consumption of your message.",
+  "offerings": [
+    {
+      "title": "2D Animation",
+      "desc": "Engaging 2D animations blending storytelling with dynamic character motion — perfect for explainer videos, ads, and branding."
+    },
+    {
+      "title": "3D Animation",
+      "desc": "Detailed 3D modeling, texturing, and rendering ideal for films, product showcases, and advertisements."
+    },
+    {
+      "title": "Animated Film Direction",
+      "desc": "We manage the creative vision of animated films, ensuring cohesive storytelling and captivating visuals."
+    },
+    {
+      "title": "Animated Film Production",
+      "desc": "From concept to final render — storyboarding, animation, and post-production for compelling animated films."
+    },
+    {
+      "title": "Motion Graphics",
+      "desc": "A variety of professional animated & static motion graphics that add value for you and your audience."
+    },
+    {
+      "title": "Whiteboard Animation",
+      "desc": "Clean whiteboard-style explainer animation that simplifies complex ideas into an engaging visual story."
+    },
+    {
+      "title": "Animated Explainer Videos",
+      "desc": "We break down complex concepts into clear, engaging stories that help customers connect with your brand."
+    },
+    {
+      "title": "CGI & Visual Effects (VFX)",
+      "desc": "Cinematic-quality visual effects for films, commercials, or digital content that captivate your audience."
+    },
+    {
+      "title": "Visual Development",
+      "desc": "Captivating characters, environments, and concept art that set the foundation for stunning projects."
+    }
+  ],
+  "ctaHeading": "Bringing Your Ideas To Life Through Motion",
+  "ctaSub": "At our animation studio, we know how important it is to get the perfect shot — for you and your audience.",
+  "benefitsTitle": "2D and 3D Animation",
+  "benefitsIntro": "Felexel offers 2D and 3D animations for your script, storyline, and products. We create unique, customizable animated videos that complement your brand and convey your message effectively.",
+  "benefits": [
+    {
+      "item": "Impactful changes and supreme audience reach"
+    },
+    {
+      "item": "Guaranteed quality work and budget-friendly packages"
+    },
+    {
+      "item": "Piloting your idea to life through 2D and 3D animated videos"
+    },
+    {
+      "item": "Cost-effective and time-saving production"
+    },
+    {
+      "item": "Updated features and modern animation styles"
+    }
+  ],
+  "extraSectionTitle": "Gaming Animation Services",
+  "extraSectionIntro": "Purpose-built animated assets for streamers and content creators.",
+  "extraItems": [
+    {
+      "title": "Animated Emotes",
+      "desc": "Express emotion and connect with your audience through custom animated and static Twitch emotes."
+    },
+    {
+      "title": "Animated Screens",
+      "desc": "Cool, jaw-dropping intro and outro screens plus banners for social links and achievements."
+    },
+    {
+      "title": "Animated Overlay",
+      "desc": "Repeating vibrant animated elements over your stream to help you stand out from the crowd."
+    },
+    {
+      "title": "Stinger Transition",
+      "desc": "Smooth, cool transitions between scenes matching your channel's whole outlook."
+    }
+  ]
+}

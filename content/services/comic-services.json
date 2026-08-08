@@ -1,0 +1,99 @@
+{
+  "order": 3,
+  "slug": "comic-services",
+  "label": "Comic Services",
+  "shortLabel": "comic art",
+  "icon": "book-open",
+  "navDesc": "Character design, illustration & comic production",
+  "eyebrow": "COMIC SERVICES",
+  "title": "Comic Services",
+  "heroImage": {
+    "src": "/images/svc-comic.jpg",
+    "alt": "Comic Services showcase"
+  },
+  "galleryImage": {
+    "src": "/images/svc-comic-2.jpg",
+    "alt": "Comic Services process"
+  },
+  "intro": "A great comic starts with a great character. Our illustrators and comic artists bring scripts and concepts to life panel by panel, blending strong linework with expressive color to tell your story the way it deserves to be told.",
+  "intro2": "Felexel supports creators through every stage of comic production — from first sketch to publish-ready file — whether you're self-publishing a webtoon or building out a full graphic novel.",
+  "offerings": [
+    {
+      "title": "Character Design",
+      "desc": "Original, expressive character designs with consistent turnarounds ready for use across your story."
+    },
+    {
+      "title": "Comic Illustration",
+      "desc": "Full panel illustration bringing your script to life with dynamic composition and linework."
+    },
+    {
+      "title": "Storyboarding",
+      "desc": "Clear visual storyboards that map out pacing and panel flow before final art begins."
+    },
+    {
+      "title": "Comic Coloring",
+      "desc": "Flat, cel-shaded, or fully rendered coloring to match the tone of your story."
+    },
+    {
+      "title": "Comic Lettering",
+      "desc": "Professional dialogue, caption, and sound-effect lettering that reads cleanly on every panel."
+    },
+    {
+      "title": "Cover Art",
+      "desc": "Striking cover illustrations designed to grab attention on a shelf or a storefront thumbnail."
+    },
+    {
+      "title": "Webtoon Panels",
+      "desc": "Vertical-scroll formatted panels optimized for Webtoon, Tapas, and similar platforms."
+    },
+    {
+      "title": "Manga-Style Art",
+      "desc": "Manga and anime-inspired illustration for creators working in that visual tradition."
+    },
+    {
+      "title": "Comic Book Layout",
+      "desc": "Full page layout and panel arrangement for print-ready comic book production."
+    }
+  ],
+  "ctaHeading": "Bringing Your Story To Life Panel By Panel",
+  "ctaSub": "At our comic studio, we know how important it is to get every panel right — for you and your readers.",
+  "benefitsTitle": "Full Comic Production",
+  "benefitsIntro": "Felexel handles your script, storyline, and characters from sketch to final file. We create unique, customizable comic art that complements your story and connects with readers.",
+  "benefits": [
+    {
+      "item": "Impactful artwork and supreme reader engagement"
+    },
+    {
+      "item": "Guaranteed quality work and budget-friendly packages"
+    },
+    {
+      "item": "Piloting your story to life through expressive art"
+    },
+    {
+      "item": "Cost-effective and time-saving production"
+    },
+    {
+      "item": "Updated, on-trend illustration styles"
+    }
+  ],
+  "extraSectionTitle": "Publishing Add-ons",
+  "extraSectionIntro": "Extra services to get your comic ready for readers, wherever they find you.",
+  "extraItems": [
+    {
+      "title": "Print-Ready Formatting",
+      "desc": "Files formatted to spec for physical print runs, bleeds, and trim sizes."
+    },
+    {
+      "title": "Digital Publishing Prep",
+      "desc": "Export and formatting for Webtoon, Tapas, ComiXology, and other digital platforms."
+    },
+    {
+      "title": "Merch-Ready Art",
+      "desc": "Character art adapted for prints, stickers, and merchandise your readers can buy."
+    },
+    {
+      "title": "Series Branding",
+      "desc": "Consistent logo, title treatment, and visual branding across your whole series."
+    }
+  ]
+}

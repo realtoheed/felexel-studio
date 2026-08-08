@@ -1,0 +1,8 @@
+{
+  "links": [
+    { "platform": "instagram", "url": "#", "enabled": true },
+    { "platform": "twitter", "url": "#", "enabled": true },
+    { "platform": "youtube", "url": "#", "enabled": true },
+    { "platform": "facebook", "url": "#", "enabled": true }
+  ]
+}

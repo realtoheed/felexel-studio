@@ -1,0 +1,694 @@
+backend:
+  name: git-gateway
+  branch: main
+  commit_messages:
+    create: 'Add {{collection}} "{{slug}}"'
+    update: 'Update {{collection}} "{{slug}}"'
+    delete: 'Delete {{collection}} "{{slug}}"'
+    uploadMedia: 'Upload "{{path}}"'
+    deleteMedia: 'Delete "{{path}}"'
+
+# Lets you preview edits on a Netlify deploy preview before they go live.
+site_url: https://felexel.netlify.app
+display_url: https://felexel.netlify.app
+logo_url: /logo.png
+
+media_folder: public/images
+public_folder: /images
+
+# Show a friendly search + keep the editor on one screen
+search: true
+
+collections:
+  # ─────────────────────────────────────────────────────────────
+  # SETTINGS — site-wide things editors change occasionally
+  # ─────────────────────────────────────────────────────────────
+  - name: settings
+    label: 'Settings'
+    label_singular: 'Setting'
+    description: 'Site-wide details: branding, contact info and social links.'
+    files:
+      - name: site
+        label: 'Site & Branding'
+        file: content/settings/site.json
+        description: 'Logos, site name, SEO defaults and the scrolling warning bar.'
+        fields:
+          - { name: siteName, label: 'Site name', widget: string }
+          - {
+              name: siteUrl,
+              label: 'Site URL',
+              widget: string,
+              hint: 'Your live address, e.g. https://felexel.com — used for SEO and social previews.',
+            }
+          - {
+              name: metaTitle,
+              label: 'Browser tab title (SEO)',
+              widget: string,
+              hint: 'Shows in Google results and the browser tab. Aim for under 60 characters.',
+            }
+          - {
+              name: metaDescription,
+              label: 'Search description (SEO)',
+              widget: text,
+              hint: 'The grey text under your link in Google. Aim for 150-160 characters.',
+            }
+          - {
+              name: logoDark,
+              label: 'Navbar logo — dark mode',
+              widget: image,
+              hint: 'Transparent PNG or SVG, roughly 400×120px. Shown when the site is in dark mode.',
+            }
+          - {
+              name: logoLight,
+              label: 'Navbar logo — light mode',
+              widget: image,
+              hint: 'Same size, but readable on a white background.',
+            }
+          - {
+              name: footerLogoDark,
+              label: 'Footer logo',
+              widget: image,
+              hint: 'The footer is always dark, so use the dark-mode version here.',
+            }
+          - { name: footerTagline, label: 'Footer tagline', widget: text }
+          - { name: copyright, label: 'Copyright line', widget: string }
+          - {
+              name: warningEnabled,
+              label: 'Show scam-warning bar',
+              widget: boolean,
+              default: true,
+              hint: 'The amber scrolling bar shown just above the footer.',
+            }
+          - {
+              name: warningText,
+              label: 'Warning bar text',
+              widget: text,
+              required: false,
+              hint: 'Write {email} where the support address should appear — it becomes a clickable link automatically.',
+            }
+
+      - name: contact
+        label: 'Contact Details'
+        file: content/settings/contact.json
+        description: 'Emails, WhatsApp number and office addresses. Used across the whole site.'
+        fields:
+          - {
+              name: whatsappNumber,
+              label: 'WhatsApp number',
+              widget: string,
+              hint: 'Country code + number, digits only. Example: 447563082132',
+            }
+          - {
+              name: contactEmail,
+              label: 'Main email',
+              widget: string,
+              hint: 'Where contact-form and artist-verification messages are sent.',
+            }
+          - { name: supportEmail, label: 'Support email', widget: string }
+          - name: branches
+            label: 'Office locations'
+            label_singular: 'Office'
+            widget: list
+            required: false
+            collapsed: false
+            summary: '{{fields.name}}'
+            hint: 'Shown in the footer. Add or remove as many as you like.'
+            fields:
+              - { name: name, label: 'Label', widget: string, hint: 'e.g. UK Branch' }
+              - { name: address, label: 'Address', widget: text }
+              - name: phones
+                label: 'Phone numbers'
+                label_singular: 'Phone'
+                widget: list
+                required: false
+                summary: '{{fields.number}}'
+                fields:
+                  - { name: number, label: 'Number', widget: string }
+
+      - name: social
+        label: 'Social Links'
+        file: content/settings/social.json
+        description: 'Social icons in the footer. Turn one off to hide its icon.'
+        fields:
+          - name: links
+            label: 'Social profiles'
+            label_singular: 'Profile'
+            widget: list
+            collapsed: false
+            summary: '{{fields.platform}} — {{fields.url}}'
+            fields:
+              - {
+                  name: platform,
+                  label: 'Platform',
+                  widget: select,
+                  options: ['instagram', 'twitter', 'youtube', 'facebook'],
+                }
+              - { name: url, label: 'Profile URL', widget: string }
+              - { name: enabled, label: 'Show this icon', widget: boolean, default: true }
+
+  # ─────────────────────────────────────────────────────────────
+  # PAGES — the copy on each page
+  # ─────────────────────────────────────────────────────────────
+  - name: pages
+    label: 'Page Content'
+    label_singular: 'Page'
+    description: 'Headlines and copy for each page of the site.'
+    files:
+      - name: home
+        label: 'Home Page'
+        file: content/pages/home.json
+        fields:
+          - name: hero
+            label: 'Hero (top of the page)'
+            widget: object
+            collapsed: false
+            fields:
+              - { name: eyebrow, label: 'Small label above headline', widget: string }
+              - { name: title, label: 'Headline', widget: string }
+              - {
+                  name: highlight,
+                  label: 'Words to colour purple',
+                  widget: string,
+                  required: false,
+                  hint: 'Must match a phrase inside the headline exactly, e.g. "to life".',
+                }
+              - { name: subtitle, label: 'Sub-headline', widget: text }
+              - name: primaryCta
+                label: 'Main button'
+                widget: object
+                fields:
+                  - { name: label, label: 'Button text', widget: string }
+                  - { name: href, label: 'Links to', widget: string, default: '/contact' }
+              - name: secondaryCta
+                label: 'Secondary button'
+                widget: object
+                fields:
+                  - { name: label, label: 'Button text', widget: string }
+                  - { name: href, label: 'Links to', widget: string, default: '/portfolio' }
+              - name: floatingImages
+                label: 'Floating images'
+                label_singular: 'Image'
+                widget: list
+                max: 4
+                collapsed: false
+                summary: '{{fields.alt}}'
+                hint: 'Exactly 4 images float around the headline on desktop.'
+                fields:
+                  - { name: src, label: 'Image', widget: image }
+                  - {
+                      name: alt,
+                      label: 'Alt text',
+                      widget: string,
+                      hint: 'Describe the image for screen readers and Google.',
+                    }
+          - name: services
+            label: 'Services section'
+            widget: object
+            collapsed: true
+            fields:
+              - { name: eyebrow, label: 'Small label', widget: string }
+              - { name: title, label: 'Heading', widget: string }
+              - { name: subtitle, label: 'Description', widget: text }
+          - name: stats
+            label: 'Statistics counters'
+            label_singular: 'Counter'
+            widget: list
+            collapsed: true
+            summary: '{{fields.value}} — {{fields.label}}'
+            fields:
+              - { name: value, label: 'Number', widget: number, value_type: int, min: 0 }
+              - { name: label, label: 'Caption', widget: string }
+          - name: why
+            label: 'Why choose us'
+            widget: object
+            collapsed: true
+            fields:
+              - { name: eyebrow, label: 'Small label', widget: string }
+              - { name: title, label: 'Heading', widget: string }
+              - name: items
+                label: 'Reasons'
+                label_singular: 'Reason'
+                widget: list
+                collapsed: false
+                summary: '{{fields.title}}'
+                fields:
+                  - { name: icon, label: 'Icon', widget: select, options: ['badge-check', 'book-open', 'brush', 'camera', 'clapperboard', 'clock', 'code', 'credit-card', 'file-search', 'landmark', 'layers', 'life-buoy', 'mail', 'message-circle', 'palette', 'pen-tool', 'radio', 'shapes', 'shield-check', 'smile', 'sparkles', 'star', 'video', 'wallet', 'wand'] }
+                  - { name: title, label: 'Title', widget: string }
+                  - { name: desc, label: 'Description', widget: text }
+          - name: process
+            label: 'How we work'
+            widget: object
+            collapsed: true
+            fields:
+              - { name: eyebrow, label: 'Small label', widget: string }
+              - { name: title, label: 'Heading', widget: string }
+              - name: steps
+                label: 'Steps'
+                label_singular: 'Step'
+                widget: list
+                collapsed: false
+                summary: '{{fields.title}}'
+                hint: 'Numbered automatically in the order listed here.'
+                fields:
+                  - { name: title, label: 'Step name', widget: string }
+                  - { name: desc, label: 'Description', widget: text }
+          - name: skills
+            label: 'Scrolling skills bar'
+            label_singular: 'Skill'
+            widget: list
+            collapsed: true
+            summary: '{{fields.label}}'
+            fields:
+              - { name: icon, label: 'Icon', widget: select, options: ['badge-check', 'book-open', 'brush', 'camera', 'clapperboard', 'clock', 'code', 'credit-card', 'file-search', 'landmark', 'layers', 'life-buoy', 'mail', 'message-circle', 'palette', 'pen-tool', 'radio', 'shapes', 'shield-check', 'smile', 'sparkles', 'star', 'video', 'wallet', 'wand'] }
+              - { name: label, label: 'Text', widget: string }
+          - name: support
+            label: 'Support banner'
+            widget: object
+            collapsed: true
+            fields:
+              - {
+                  name: text,
+                  label: 'Support message',
+                  widget: text,
+                  hint: 'Write {email} where the support address should appear.',
+                }
+              - { name: ctaLabel, label: 'Button text', widget: string }
+
+      - name: about
+        label: 'About Page'
+        file: content/pages/about.json
+        fields:
+          - { name: eyebrow, label: 'Small label', widget: string }
+          - { name: title, label: 'Heading', widget: string }
+          - { name: body, label: 'Body copy', widget: text }
+          - name: image
+            label: 'Photo'
+            widget: object
+            fields:
+              - { name: src, label: 'Image', widget: image }
+              - { name: alt, label: 'Alt text', widget: string }
+          - name: bullets
+            label: 'Bullet points'
+            label_singular: 'Bullet'
+            widget: list
+            collapsed: false
+            summary: '{{fields.item}}'
+            fields:
+              - { name: item, label: 'Text', widget: string }
+          - name: expertise
+            label: 'Expertise section'
+            widget: object
+            collapsed: true
+            fields:
+              - { name: eyebrow, label: 'Small label', widget: string }
+              - { name: title, label: 'Heading', widget: string }
+              - name: items
+                label: 'Expertise items'
+                label_singular: 'Item'
+                widget: list
+                collapsed: false
+                summary: '{{fields.label}}'
+                fields:
+                  - { name: icon, label: 'Icon', widget: select, options: ['badge-check', 'book-open', 'brush', 'camera', 'clapperboard', 'clock', 'code', 'credit-card', 'file-search', 'landmark', 'layers', 'life-buoy', 'mail', 'message-circle', 'palette', 'pen-tool', 'radio', 'shapes', 'shield-check', 'smile', 'sparkles', 'star', 'video', 'wallet', 'wand'] }
+                  - { name: label, label: 'Label', widget: string }
+
+      - name: misc
+        label: 'Other Page Headings'
+        file: content/pages/misc.json
+        description: 'Headings for the Services, Portfolio, Packages, Testimonials, Contact, Verify Artist and Blog pages.'
+        fields:
+          - name: servicesHero
+            label: 'Services page heading'
+            widget: object
+            collapsed: true
+            fields:
+              - { name: eyebrow, label: 'Small label', widget: string }
+              - { name: title, label: 'Heading', widget: string }
+              - { name: subtitle, label: 'Sub-heading', widget: text, required: false }
+          - name: portfolioHero
+            label: 'Portfolio page heading'
+            widget: object
+            collapsed: true
+            fields:
+              - { name: eyebrow, label: 'Small label', widget: string }
+              - { name: title, label: 'Heading', widget: string }
+              - { name: subtitle, label: 'Sub-heading', widget: text, required: false }
+          - name: packagesHero
+            label: 'Packages page heading'
+            widget: object
+            collapsed: true
+            fields:
+              - { name: eyebrow, label: 'Small label', widget: string }
+              - { name: title, label: 'Heading', widget: string }
+              - { name: subtitle, label: 'Sub-heading', widget: text, required: false }
+          - name: testimonialsHero
+            label: 'Testimonials page heading'
+            widget: object
+            collapsed: true
+            fields:
+              - { name: eyebrow, label: 'Small label', widget: string }
+              - { name: title, label: 'Heading', widget: string }
+              - { name: subtitle, label: 'Sub-heading', widget: text, required: false }
+          - name: contactHero
+            label: 'Contact page heading'
+            widget: object
+            collapsed: true
+            fields:
+              - { name: eyebrow, label: 'Small label', widget: string }
+              - { name: title, label: 'Heading', widget: string }
+              - { name: subtitle, label: 'Sub-heading', widget: text, required: false }
+          - name: contactImage
+            label: 'Contact page banner image'
+            widget: object
+            collapsed: true
+            fields:
+              - { name: src, label: 'Image', widget: image }
+              - { name: alt, label: 'Alt text', widget: string }
+          - name: verifyHero
+            label: 'Verify Artist page heading'
+            widget: object
+            collapsed: true
+            fields:
+              - { name: eyebrow, label: 'Small label', widget: string }
+              - { name: title, label: 'Heading', widget: string }
+              - { name: subtitle, label: 'Sub-heading', widget: text, required: false }
+          - name: verifySteps
+            label: 'Verify Artist — how it works'
+            label_singular: 'Step'
+            widget: list
+            collapsed: true
+            summary: '{{fields.title}}'
+            fields:
+              - { name: icon, label: 'Icon', widget: select, options: ['badge-check', 'book-open', 'brush', 'camera', 'clapperboard', 'clock', 'code', 'credit-card', 'file-search', 'landmark', 'layers', 'life-buoy', 'mail', 'message-circle', 'palette', 'pen-tool', 'radio', 'shapes', 'shield-check', 'smile', 'sparkles', 'star', 'video', 'wallet', 'wand'] }
+              - { name: title, label: 'Title', widget: string }
+              - { name: desc, label: 'Description', widget: text }
+          - name: blogHero
+            label: 'Blog page heading'
+            widget: object
+            collapsed: true
+            fields:
+              - { name: eyebrow, label: 'Small label', widget: string }
+              - { name: title, label: 'Heading', widget: string }
+              - { name: subtitle, label: 'Sub-heading', widget: text, required: false }
+          - name: paymentNote
+            label: 'Payment info box (Packages page)'
+            widget: object
+            collapsed: true
+            fields:
+              - { name: title, label: 'Heading', widget: string }
+              - { name: body, label: 'Explanation', widget: text }
+              - name: methods
+                label: 'Accepted methods'
+                label_singular: 'Method'
+                widget: list
+                collapsed: false
+                summary: '{{fields.label}}'
+                fields:
+                  - { name: icon, label: 'Icon', widget: select, options: ['badge-check', 'book-open', 'brush', 'camera', 'clapperboard', 'clock', 'code', 'credit-card', 'file-search', 'landmark', 'layers', 'life-buoy', 'mail', 'message-circle', 'palette', 'pen-tool', 'radio', 'shapes', 'shield-check', 'smile', 'sparkles', 'star', 'video', 'wallet', 'wand'] }
+                  - { name: label, label: 'Label', widget: string }
+
+      - name: terms
+        label: 'Terms & Conditions'
+        file: content/pages/terms.md
+        fields:
+          - { name: title, label: 'Page title', widget: string }
+          - { name: eyebrow, label: 'Small label', widget: string, default: 'LEGAL' }
+          - { name: body, label: 'Content', widget: markdown }
+
+      - name: privacy
+        label: 'Privacy Policy'
+        file: content/pages/privacy.md
+        fields:
+          - { name: title, label: 'Page title', widget: string }
+          - { name: eyebrow, label: 'Small label', widget: string, default: 'LEGAL' }
+          - { name: body, label: 'Content', widget: markdown }
+
+  # ─────────────────────────────────────────────────────────────
+  # SERVICES — add / edit / remove service categories
+  # ─────────────────────────────────────────────────────────────
+  - name: services
+    label: 'Services'
+    label_singular: 'Service'
+    description: 'Each service gets its own page and appears in the Services dropdown.'
+    folder: content/services
+    create: true
+    delete: true
+    extension: json
+    slug: '{{fields.slug}}'
+    identifier_field: label
+    summary: '{{order}}. {{label}}'
+    sortable_fields: ['order', 'label']
+    fields:
+      - {
+          name: order,
+          label: 'Display order',
+          widget: number,
+          value_type: int,
+          min: 1,
+          default: 1,
+          hint: 'Lower numbers appear first in the menu and on the Services page.',
+        }
+      - { name: label, label: 'Service name', widget: string, hint: 'e.g. Animation' }
+      - {
+          name: slug,
+          label: 'URL slug',
+          widget: string,
+          pattern: ['^[a-z0-9-]+$', 'Lowercase letters, numbers and dashes only'],
+          hint: 'The page address, e.g. "animation" becomes /services/animation. Avoid changing this after launch.',
+        }
+      - {
+          name: shortLabel,
+          label: 'Short name (lowercase)',
+          widget: string,
+          hint: 'Used mid-sentence, e.g. "Ready to start your animation project?"',
+        }
+      - { name: icon, label: 'Menu icon', widget: select, options: ['badge-check', 'book-open', 'brush', 'camera', 'clapperboard', 'clock', 'code', 'credit-card', 'file-search', 'landmark', 'layers', 'life-buoy', 'mail', 'message-circle', 'palette', 'pen-tool', 'radio', 'shapes', 'shield-check', 'smile', 'sparkles', 'star', 'video', 'wallet', 'wand'] }
+      - {
+          name: navDesc,
+          label: 'Menu description',
+          widget: string,
+          hint: 'One short line shown under the name in the Services dropdown.',
+        }
+      - { name: eyebrow, label: 'Small label on page', widget: string }
+      - { name: title, label: 'Page title', widget: string }
+      - name: heroImage
+        label: 'Hero banner image'
+        widget: object
+        fields:
+          - { name: src, label: 'Image', widget: image, hint: 'Wide image, at least 1400px across.' }
+          - { name: alt, label: 'Alt text', widget: string }
+      - name: galleryImage
+        label: 'Benefits section image'
+        widget: object
+        fields:
+          - { name: src, label: 'Image', widget: image }
+          - { name: alt, label: 'Alt text', widget: string }
+      - { name: ctaHeading, label: 'Hero headline', widget: string }
+      - { name: ctaSub, label: 'Hero sub-headline', widget: text }
+      - { name: intro, label: 'Intro paragraph 1', widget: text }
+      - { name: intro2, label: 'Intro paragraph 2', widget: text }
+      - name: offerings
+        label: "What's included"
+        label_singular: 'Offering'
+        widget: list
+        collapsed: false
+        summary: '{{fields.title}}'
+        fields:
+          - { name: title, label: 'Title', widget: string }
+          - { name: desc, label: 'Description', widget: text }
+      - { name: benefitsTitle, label: 'Benefits — heading', widget: string }
+      - { name: benefitsIntro, label: 'Benefits — intro', widget: text }
+      - name: benefits
+        label: 'Benefits — bullet list'
+        label_singular: 'Benefit'
+        widget: list
+        collapsed: false
+        summary: '{{fields.item}}'
+        fields:
+          - { name: item, label: 'Text', widget: string }
+      - { name: extraSectionTitle, label: 'Extra section — heading', widget: string }
+      - { name: extraSectionIntro, label: 'Extra section — intro', widget: text }
+      - name: extraItems
+        label: 'Extra section — cards'
+        label_singular: 'Card'
+        widget: list
+        collapsed: false
+        summary: '{{fields.title}}'
+        fields:
+          - { name: title, label: 'Title', widget: string }
+          - { name: desc, label: 'Description', widget: text }
+
+  # ─────────────────────────────────────────────────────────────
+  # PORTFOLIO
+  # ─────────────────────────────────────────────────────────────
+  - name: portfolio
+    label: 'Portfolio'
+    label_singular: 'Portfolio item'
+    description: 'Work samples shown on the Portfolio page, home page and matching service pages.'
+    folder: content/portfolio
+    create: true
+    delete: true
+    extension: json
+    slug: '{{slug}}'
+    identifier_field: label
+    summary: '{{order}}. {{label}} ({{tag}})'
+    sortable_fields: ['order', 'label', 'tag']
+    fields:
+      - { name: order, label: 'Display order', widget: number, value_type: int, min: 1, default: 1 }
+      - { name: label, label: 'Title', widget: string, hint: 'e.g. Twitch Overlay' }
+      - {
+          name: tag,
+          label: 'Category',
+          widget: string,
+          hint: 'Match a service name (e.g. Animation) to make it show on that service page. "Streaming Graphics" also shows under Graphic Design.',
+        }
+      - name: image
+        label: 'Image'
+        widget: object
+        fields:
+          - { name: src, label: 'Image', widget: image }
+          - { name: alt, label: 'Alt text', widget: string }
+
+  # ─────────────────────────────────────────────────────────────
+  # TESTIMONIALS
+  # ─────────────────────────────────────────────────────────────
+  - name: testimonials
+    label: 'Testimonials'
+    label_singular: 'Testimonial'
+    folder: content/testimonials
+    create: true
+    delete: true
+    extension: json
+    slug: '{{slug}}'
+    identifier_field: author
+    summary: '{{order}}. {{author}}'
+    sortable_fields: ['order', 'author']
+    fields:
+      - { name: order, label: 'Display order', widget: number, value_type: int, min: 1, default: 1 }
+      - { name: author, label: 'Client name / role', widget: string }
+      - { name: rating, label: 'Star rating', widget: number, value_type: int, min: 1, max: 5, default: 5 }
+      - { name: quote, label: 'Quote', widget: text }
+      - name: avatar
+        label: 'Profile photo'
+        widget: object
+        fields:
+          - { name: src, label: 'Image', widget: image, hint: 'Square image works best.' }
+          - { name: alt, label: 'Alt text', widget: string }
+
+  # ─────────────────────────────────────────────────────────────
+  # PACKAGES
+  # ─────────────────────────────────────────────────────────────
+  - name: packages
+    label: 'Packages'
+    label_singular: 'Package'
+    description: 'Pricing plans shown on the Packages page.'
+    folder: content/packages
+    create: true
+    delete: true
+    extension: json
+    slug: '{{slug}}'
+    identifier_field: name
+    summary: '{{order}}. {{name}} — {{price}}'
+    sortable_fields: ['order', 'name']
+    fields:
+      - { name: order, label: 'Display order', widget: number, value_type: int, min: 1, default: 1 }
+      - { name: name, label: 'Plan name', widget: string }
+      - { name: price, label: 'Price', widget: string, hint: 'e.g. From $149' }
+      - {
+          name: featured,
+          label: 'Highlight this plan',
+          widget: boolean,
+          default: false,
+          hint: 'Adds the purple border and badge.',
+        }
+      - { name: badge, label: 'Badge text', widget: string, required: false, default: 'Most Popular' }
+      - name: features
+        label: "What's included"
+        label_singular: 'Feature'
+        widget: list
+        collapsed: false
+        summary: '{{fields.item}}'
+        fields:
+          - { name: item, label: 'Feature', widget: string }
+      - { name: ctaLabel, label: 'Button text', widget: string, default: 'Choose Plan' }
+
+  # ─────────────────────────────────────────────────────────────
+  # FAQ
+  # ─────────────────────────────────────────────────────────────
+  - name: faq
+    label: 'FAQ'
+    label_singular: 'Question'
+    description: 'Shown on the Home, Packages, Contact, Testimonials and Verify Artist pages.'
+    folder: content/faq
+    create: true
+    delete: true
+    extension: json
+    slug: '{{slug}}'
+    identifier_field: question
+    summary: '{{order}}. {{question}}'
+    sortable_fields: ['order', 'question']
+    fields:
+      - { name: order, label: 'Display order', widget: number, value_type: int, min: 1, default: 1 }
+      - { name: question, label: 'Question', widget: string }
+      - { name: answer, label: 'Answer', widget: text }
+
+  # ─────────────────────────────────────────────────────────────
+  # BLOG
+  # ─────────────────────────────────────────────────────────────
+  - name: blog
+    label: 'Blog'
+    label_singular: 'Post'
+    description: 'Articles published at /blog.'
+    folder: content/blog
+    create: true
+    delete: true
+    extension: md
+    format: frontmatter
+    slug: '{{slug}}'
+    identifier_field: title
+    summary: '{{title}} — {{date | date("MMM D, YYYY")}}'
+    sortable_fields: ['date', 'title']
+    view_filters:
+      - { label: 'Drafts', field: draft, pattern: true }
+      - { label: 'Published', field: draft, pattern: false }
+    fields:
+      - { name: title, label: 'Title', widget: string }
+      - {
+          name: date,
+          label: 'Publish date',
+          widget: datetime,
+          date_format: 'YYYY-MM-DD',
+          time_format: 'HH:mm',
+          picker_utc: true,
+        }
+      - {
+          name: excerpt,
+          label: 'Short summary',
+          widget: text,
+          hint: 'Shown on the blog list and in Google results. 1-2 sentences.',
+        }
+      - name: coverImage
+        label: 'Cover image'
+        widget: object
+        required: false
+        fields:
+          - { name: src, label: 'Image', widget: image }
+          - { name: alt, label: 'Alt text', widget: string }
+      - { name: author, label: 'Author', widget: string, required: false, default: 'Felexel Creative Studio' }
+      - name: tags
+        label: 'Tags'
+        label_singular: 'Tag'
+        widget: list
+        required: false
+        collapsed: false
+        summary: '{{fields.tag}}'
+        fields:
+          - { name: tag, label: 'Tag', widget: string }
+      - {
+          name: draft,
+          label: 'Save as draft',
+          widget: boolean,
+          default: false,
+          hint: 'Drafts stay hidden from the live site.',
+        }
+      - { name: body, label: 'Article', widget: markdown }

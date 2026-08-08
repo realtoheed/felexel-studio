@@ -1,0 +1,13 @@
+{
+  "siteName": "Felexel Creative Studio",
+  "siteUrl": "https://felexel.netlify.app",
+  "metaTitle": "Felexel Creative Studio — Overlays, Emotes, Mascot Logos & Animation",
+  "metaDescription": "Felexel Creative Studio — Graphic Design, 2D/3D Animation, Twitch Overlays, Emotes, Mascot Logos & Web Development.",
+  "logoDark": "/logo.png",
+  "logoLight": "/logo-light.png",
+  "footerLogoDark": "/logo.png",
+  "footerTagline": "Felexel Creative Studio — graphic design, animation, overlays, emotes & web development for creators and brands.",
+  "copyright": "© 2026 Felexel Creative Studio. All rights reserved.",
+  "warningEnabled": true,
+  "warningText": "Attention: Please validate the invoice and affiliated artist name at {email} before paying anyone claiming to represent Felexel Creative Studio."
+}

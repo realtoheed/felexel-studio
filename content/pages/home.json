@@ -1,0 +1,62 @@
+{
+  "hero": {
+    "eyebrow": "FELEXEL CREATIVE STUDIO",
+    "title": "Bringing your ideas to life through motion.",
+    "highlight": "to life",
+    "subtitle": "At our creative production studio, we know how important it is to get the perfect shot — for you and your audience. Overlays, emotes, mascots, animation & design, crafted end to end.",
+    "primaryCta": { "label": "Get Started", "href": "/contact" },
+    "secondaryCta": { "label": "View Portfolio", "href": "/portfolio" },
+    "floatingImages": [
+      { "src": "/images/portfolio-2.jpg", "alt": "Twitch overlay design work" },
+      { "src": "/images/portfolio-4.jpg", "alt": "Emote pack illustration" },
+      { "src": "/images/portfolio-6.jpg", "alt": "Animated intro production" },
+      { "src": "/images/portfolio-5.jpg", "alt": "Banner set design" }
+    ]
+  },
+  "services": {
+    "eyebrow": "WHAT WE DO",
+    "title": "Everything you need for your streaming channel",
+    "subtitle": "Felexel Creative Studio specializes in producing unique stream graphics, Twitch overlays, animations, mascot logos and full brand identities."
+  },
+  "stats": [
+    { "value": 1200, "label": "Logos Delivered" },
+    { "value": 850, "label": "Banners Designed" },
+    { "value": 2400, "label": "Emotes Created" },
+    { "value": 600, "label": "Animated Videos" }
+  ],
+  "why": {
+    "eyebrow": "WHY FELEXEL",
+    "title": "Why creators & brands choose us",
+    "items": [
+      { "icon": "badge-check", "title": "Certified Experts", "desc": "Skilled designers & animators with years of production experience." },
+      { "icon": "sparkles", "title": "Clean Editing", "desc": "Polished, pixel-perfect output on every single project." },
+      { "icon": "wallet", "title": "Affordable Pricing", "desc": "Studio-quality creative work at rates built for creators." },
+      { "icon": "clock", "title": "24/7 Support", "desc": "We're on WhatsApp whenever you need an update or a fix." }
+    ]
+  },
+  "process": {
+    "eyebrow": "HOW WE WORK",
+    "title": "We believe our work can contribute to a better digital world.",
+    "steps": [
+      { "title": "Create An Idea", "desc": "We discuss your vision, brand and goals." },
+      { "title": "Execution", "desc": "Our team starts designing/animating your concept." },
+      { "title": "Changes & Refinement", "desc": "You review, we revise until it's right." },
+      { "title": "Project Completion", "desc": "Final polish and quality checks." },
+      { "title": "Final Delivery", "desc": "Files delivered in every format you need." }
+    ]
+  },
+  "skills": [
+    { "icon": "palette", "label": "Logo Design" },
+    { "icon": "clapperboard", "label": "2D & 3D Animation" },
+    { "icon": "code", "label": "Web Development" },
+    { "icon": "book-open", "label": "Comic Illustration" },
+    { "icon": "sparkles", "label": "Motion Graphics" },
+    { "icon": "shapes", "label": "Mascot Logos" },
+    { "icon": "radio", "label": "Stream Overlays" },
+    { "icon": "pen-tool", "label": "Brand Identity" }
+  ],
+  "support": {
+    "text": "If you encounter any issues or you require assistance, please contact us at {email}. We're committed to providing exceptional service and ensuring your experience with us is smooth and satisfactory.",
+    "ctaLabel": "Queries?"
+  }
+}

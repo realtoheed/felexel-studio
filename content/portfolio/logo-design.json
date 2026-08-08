@@ -1,0 +1,9 @@
+{
+  "order": 1,
+  "label": "Logo Design",
+  "tag": "Graphic Design",
+  "image": {
+    "src": "/images/portfolio-1.jpg",
+    "alt": "Logo Design"
+  }
+}

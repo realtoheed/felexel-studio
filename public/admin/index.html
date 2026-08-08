@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex" />
+    <title>Felexel Studio — Content Manager</title>
+    <link rel="icon" href="/icon.png" />
+    <style>
+      /* Brand the login screen so it doesn't look like a stock CMS. */
+      body { font-family: Inter, system-ui, sans-serif; }
+      [class*="Notifications"] { z-index: 10000; }
+    </style>
+  </head>
+  <body>
+    <!-- Netlify Identity: handles login and invite/recovery links -->
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+
+    <!-- Decap CMS -->
+    <script src="https://unpkg.com/decap-cms@^3.8.4/dist/decap-cms.js"></script>
+
+    <script>
+      // Return editors to /admin/ after they accept an invite or reset a password.
+      if (window.netlifyIdentity) {
+        window.netlifyIdentity.on("init", (user) => {
+          if (!user) {
+            window.netlifyIdentity.on("login", () => {
+              document.location.href = "/admin/";
+            });
+          }
+        });
+      }
+    </script>
+  </body>
+</html>

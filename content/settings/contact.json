@@ -1,0 +1,17 @@
+{
+  "whatsappNumber": "10000000000",
+  "contactEmail": "hello@felexel.com",
+  "supportEmail": "support@felexel.com",
+  "branches": [
+    {
+      "name": "US Branch",
+      "address": "Balcones Drive STE 4351, Austin, TX, United States",
+      "phones": [{ "number": "+1 (737) 309-3258" }]
+    },
+    {
+      "name": "UK Branch",
+      "address": "Unit 3 L35 Premier House, Rolfe Street, Smethwick, West Midlands B66 2AA",
+      "phones": [{ "number": "+44 756 308 2132" }]
+    }
+  ]
+}

@@ -1,0 +1,53 @@
+{
+  "servicesHero": {
+    "eyebrow": "WHAT WE DO",
+    "title": "Everything you need for your streaming channel",
+    "subtitle": "Explore our service categories below, or dive straight into a specific area."
+  },
+  "portfolioHero": {
+    "eyebrow": "OUR PORTFOLIO",
+    "title": "A glimpse of our work",
+    "subtitle": "A selection of the design, animation and branding work we've produced for creators and brands."
+  },
+  "packagesHero": {
+    "eyebrow": "OUR PACKAGES",
+    "title": "Simple, flexible pricing",
+    "subtitle": "Every package is fully customizable — message us on WhatsApp to tailor one to your needs."
+  },
+  "testimonialsHero": {
+    "eyebrow": "TESTIMONIALS",
+    "title": "What our clients are saying about us",
+    "subtitle": ""
+  },
+  "contactHero": {
+    "eyebrow": "GET IN TOUCH",
+    "title": "Let's build something great",
+    "subtitle": "Tell us about your project and we'll get back to you within 24 hours. For fastest response, message us on WhatsApp."
+  },
+  "contactImage": { "src": "/images/contact-workspace.jpg", "alt": "Felexel Creative Studio" },
+  "verifyHero": {
+    "eyebrow": "AFFILIATED ARTIST",
+    "title": "Verify an artist",
+    "subtitle": "Want to confirm whether an artist is officially affiliated with Felexel Creative Studio? Submit their name below and our team will personally review and reply to your email."
+  },
+  "verifySteps": [
+    { "icon": "file-search", "title": "Submit the artist name", "desc": "Fill in the artist's name and your email so we know where to send the answer." },
+    { "icon": "mail", "title": "We review manually", "desc": "Our team personally checks our records — no automated database, no public artist list." },
+    { "icon": "shield-check", "title": "Get your answer", "desc": "We reply directly to your email confirming whether the artist is officially affiliated." }
+  ],
+  "blogHero": {
+    "eyebrow": "BLOG",
+    "title": "News, tips & studio updates",
+    "subtitle": "Guides and insights on branding, animation and growing your channel."
+  },
+  "paymentNote": {
+    "title": "How payment works",
+    "body": "We accept PayPal, Credit/Debit Card and Bank Transfer. Payments are currently arranged directly with our team over WhatsApp after your order details are confirmed — tap below to chat with us.",
+    "methods": [
+      { "icon": "wallet", "label": "PayPal" },
+      { "icon": "credit-card", "label": "Visa" },
+      { "icon": "credit-card", "label": "Mastercard" },
+      { "icon": "landmark", "label": "Bank Transfer" }
+    ]
+  }
+}
