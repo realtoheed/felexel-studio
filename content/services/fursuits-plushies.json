@@ -1,0 +1,95 @@
+{
+  "order": 5,
+  "slug": "fursuits-plushies",
+  "label": "Fursuits & Plushies",
+  "shortLabel": "fursuit or plushie",
+  "icon": "brush",
+  "navDesc": "Custom fursuits and plushies built from your character designs",
+  "eyebrow": "FURSUITS & PLUSHIES",
+  "title": "Fursuits & Plushies",
+  "heroImage": {
+    "src": "/images/svc-fursuit.jpg",
+    "alt": "Handmade plush animal characters"
+  },
+  "galleryImage": {
+    "src": "/images/svc-fursuit-2.jpg",
+    "alt": "Craft materials for handmade plushie production"
+  },
+  "intro": "Turn your character into something you can touch and enjoy! We create custom fursuits and plushies based on your original characters, fursonas, mascots, and designs. From wearable costumes to cute collectible plushies, we bring your favorite characters into the real world.",
+  "intro2": "From your imagination to the real world. Every piece is handmade to match your character's colors, markings and personality, whether it's a full costume or a keepsake plushie.",
+  "offerings": [
+    {
+      "title": "Custom Fursuit Heads",
+      "desc": "Detailed, expressive fursuit heads built to match your character design."
+    },
+    {
+      "title": "Full & Partial Fursuits",
+      "desc": "Complete costumes or partial sets, made to fit comfortably for wear."
+    },
+    {
+      "title": "Paws, Tails & Accessories",
+      "desc": "Matching paws, tails and accessories to complete your fursuit."
+    },
+    {
+      "title": "Custom Plushies",
+      "desc": "Soft, huggable plushies crafted from your character or mascot design."
+    },
+    {
+      "title": "Character-Based Designs",
+      "desc": "Every piece built around your original character, fursona or mascot."
+    },
+    {
+      "title": "Custom Colors & Markings",
+      "desc": "Accurate colors and markings matched closely to your reference art."
+    },
+    {
+      "title": "Chibi & Cute Styles",
+      "desc": "Playful, chibi-style plushies and suits for a softer, cuter look."
+    },
+    {
+      "title": "Personalized Details",
+      "desc": "Small personal touches \u2014 embroidery, accessories, name tags and more."
+    }
+  ],
+  "ctaHeading": "Bringing Your Character Into The Real World",
+  "ctaSub": "At our studio, we know how important it is to get every detail right \u2014 for you and your character.",
+  "benefitsTitle": "Handmade Fursuits & Plushies",
+  "benefitsIntro": "Felexel builds your fursuit or plushie around your original character art, colors and personality, delivering a piece made to last and made to love.",
+  "benefits": [
+    {
+      "item": "Handmade craftsmanship with attention to every detail"
+    },
+    {
+      "item": "Guaranteed quality materials and budget-friendly packages"
+    },
+    {
+      "item": "Piloting your character to life in physical form"
+    },
+    {
+      "item": "Cost-effective and time-saving production"
+    },
+    {
+      "item": "Personalized colors, markings and accessories"
+    }
+  ],
+  "extraSectionTitle": "Craft Add-ons",
+  "extraSectionIntro": "Extra touches to make your fursuit or plushie one of a kind.",
+  "extraItems": [
+    {
+      "title": "Matching Mini Plushie",
+      "desc": "A pocket-sized plushie version of your full fursuit character."
+    },
+    {
+      "title": "Costume Accessories",
+      "desc": "Bags, badges and props designed to match your character."
+    },
+    {
+      "title": "Repairs & Touch-ups",
+      "desc": "Maintenance and refresh work for existing fursuits and plushies."
+    },
+    {
+      "title": "Gift Packaging",
+      "desc": "Presentation-ready packaging if your plushie is a gift."
+    }
+  ]
+}

@@ -1,0 +1,95 @@
+{
+  "order": 4,
+  "slug": "vtuber-models",
+  "label": "VTuber Models",
+  "shortLabel": "VTuber model",
+  "icon": "video",
+  "navDesc": "Custom 2D & 3D VTuber models built around your character",
+  "eyebrow": "VTUBER MODELS \u2014 2D & 3D",
+  "title": "VTuber Models",
+  "heroImage": {
+    "src": "/images/svc-vtuber.jpg",
+    "alt": "Character concept sketch for a VTuber model"
+  },
+  "galleryImage": {
+    "src": "/images/svc-vtuber-2.jpg",
+    "alt": "Digital illustration process for a VTuber character"
+  },
+  "intro": "Bring your character to life! We create custom 2D and 3D VTuber models made around your character and personality. Whether you're starting your first VTuber journey or upgrading your current avatar, we'll create a model that looks great and moves naturally.",
+  "intro2": "Your character, your style, your virtual identity. From first concept sketch to a fully rigged, streaming-ready model, our team handles every step so you can focus on going live.",
+  "offerings": [
+    {
+      "title": "Custom 2D & 3D Models",
+      "desc": "Original character models built from scratch around your personality and visual style."
+    },
+    {
+      "title": "Character Design",
+      "desc": "Concept art and design work to define your character before modeling begins."
+    },
+    {
+      "title": "Live2D Rigging",
+      "desc": "Smooth, expressive Live2D rigging for natural on-stream movement."
+    },
+    {
+      "title": "3D Modeling & Rigging",
+      "desc": "Fully rigged 3D models built for VTubing software and motion capture."
+    },
+    {
+      "title": "Facial Expressions",
+      "desc": "A full range of expressions so your model reacts naturally to your voice and mood."
+    },
+    {
+      "title": "Physics & Movement",
+      "desc": "Realistic hair, clothing and accessory physics for lifelike motion."
+    },
+    {
+      "title": "Custom Outfits & Accessories",
+      "desc": "Additional outfits, props and accessories to expand your model over time."
+    },
+    {
+      "title": "Streaming-Ready Setup",
+      "desc": "Delivered ready to plug into your streaming software with no extra setup headaches."
+    }
+  ],
+  "ctaHeading": "Bringing Your Character To Life",
+  "ctaSub": "At our studio, we know how important it is to get your avatar right \u2014 for you and your audience.",
+  "benefitsTitle": "Custom VTuber Model Production",
+  "benefitsIntro": "Felexel builds your VTuber model around your character concept, personality and streaming needs, from first sketch to a fully rigged, ready-to-stream avatar.",
+  "benefits": [
+    {
+      "item": "A model that truly looks and feels like you"
+    },
+    {
+      "item": "Guaranteed quality rigging and budget-friendly packages"
+    },
+    {
+      "item": "Natural movement and expressive, lifelike animation"
+    },
+    {
+      "item": "Cost-effective and time-saving production"
+    },
+    {
+      "item": "Ongoing support for outfits and model upgrades"
+    }
+  ],
+  "extraSectionTitle": "Model Add-ons",
+  "extraSectionIntro": "Extras to make your VTuber setup complete.",
+  "extraItems": [
+    {
+      "title": "Emote & Badge Set",
+      "desc": "Matching emotes and badges featuring your VTuber character."
+    },
+    {
+      "title": "Overlay Package",
+      "desc": "Stream overlays designed to match your character's colors and style."
+    },
+    {
+      "title": "Alternate Outfits",
+      "desc": "Seasonal or special-occasion outfit variants for your model."
+    },
+    {
+      "title": "Model Upgrades",
+      "desc": "Come back any time to expand or refine your existing model."
+    }
+  ]
+}
