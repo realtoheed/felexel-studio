@@ -14,6 +14,7 @@ export default function AffiliatedArtist() {
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     const company = (e.currentTarget.elements.namedItem("company") as HTMLInputElement)?.value ?? "";
+    if (company) return; // honeypot tripped — silently drop the submission
     submit({ artistName, email, details, company });
   }
 
@@ -34,10 +35,8 @@ export default function AffiliatedArtist() {
             name="affiliated-artist"
             onSubmit={handleSubmit}
             className="flex flex-col gap-4 bg-surface border border-text-dim/12 rounded-[20px] p-9"
-            data-netlify="true"
-            netlify-honeypot="company"
           >
-            <input type="hidden" name="form-name" value="affiliated-artist" />
+            {/* Honeypot: hidden from real visitors, bots tend to fill every field */}
             <input
               type="text"
               name="company"

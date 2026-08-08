@@ -23,6 +23,7 @@ export default function Contact({
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     const company = (e.currentTarget.elements.namedItem("company") as HTMLInputElement)?.value ?? "";
+    if (company) return; // honeypot tripped — silently drop the submission
     submit({ name, email, subject, message, company });
   }
 
@@ -62,14 +63,8 @@ export default function Contact({
                 </p>
               </div>
             ) : (
-              <form
-                name="contact"
-                onSubmit={handleSubmit}
-                className="flex flex-col gap-4"
-                data-netlify="true"
-                netlify-honeypot="company"
-              >
-                <input type="hidden" name="form-name" value="contact" />
+              <form name="contact" onSubmit={handleSubmit} className="flex flex-col gap-4">
+                {/* Honeypot: hidden from real visitors, bots tend to fill every field */}
                 <input
                   type="text"
                   name="company"
