@@ -73,15 +73,30 @@ export type Testimonial = {
   avatar: CmsImage;
 };
 
-export type PackagePlan = {
-  order: number;
+export type PackageTier = {
   name: string;
   price: string;
-  featured: boolean;
-  badge?: string;
   features: { item: string }[];
-  ctaLabel: string;
 };
+
+export type PackageGroup = {
+  order: number;
+  category: string;
+  title: string;
+  tiers: PackageTier[];
+};
+
+/**
+ * Maps a package group's `category` (and a service's slug) to the section
+ * shown on /packages. Keep in sync with the `category` select options in
+ * public/admin/config.yml and with the service slugs in content/services/*.
+ */
+export const PACKAGE_CATEGORIES: { slug: string; label: string; blurb: string }[] = [
+  { slug: "animation", label: "Animation", blurb: "2D & 3D character and scene animation." },
+  { slug: "vtuber-models", label: "VTuber Models", blurb: "VTuber models, PNGTuber assets & animated emotes." },
+  { slug: "graphic-design", label: "Graphic Design", blurb: "Logos, banners, panels, badges & emotes." },
+  { slug: "comic-services", label: "Comic Services", blurb: "Character and scene illustration." },
+];
 
 export type FaqItem = { order: number; question: string; answer: string };
 
@@ -209,8 +224,12 @@ export function getServices(): ServiceCategory[] {
 export const getService = (slug: string) => getServices().find((s) => s.slug === slug);
 export const getPortfolio = () => readCollection<PortfolioItem>("portfolio");
 export const getTestimonials = () => readCollection<Testimonial>("testimonials");
-export const getPackages = () => readCollection<PackagePlan>("packages");
+export const getPackageGroups = () => readCollection<PackageGroup>("package-groups");
 export const getFaqs = () => readCollection<FaqItem>("faq");
+
+export function getPackageGroupsByCategory(category: string) {
+  return getPackageGroups().filter((g) => g.category === category);
+}
 
 /* ---------------- derived helpers ---------------- */
 

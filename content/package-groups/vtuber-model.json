@@ -1,0 +1,37 @@
+{
+  "order": 3,
+  "category": "vtuber-models",
+  "title": "VTuber Model Packages",
+  "tiers": [
+    {
+      "name": "Basic",
+      "price": "$650",
+      "features": [
+        { "item": "Simple 2D VTuber Model" },
+        { "item": "Basic Rigging" },
+        { "item": "2 Expressions" }
+      ]
+    },
+    {
+      "name": "Standard",
+      "price": "$1600",
+      "features": [
+        { "item": "Live 2D Model" },
+        { "item": "Smooth Rigging" },
+        { "item": "Expressions & Toggles" }
+      ]
+    },
+    {
+      "name": "Elite",
+      "price": "$3200",
+      "features": [
+        { "item": "Premium VTuber Model" },
+        { "item": "Advanced Rigging" },
+        { "item": "Full Expressions Pack" },
+        { "item": "Advanced Toggles" },
+        { "item": "Commercial Use" },
+        { "item": "Premium Streaming Setup" }
+      ]
+    }
+  ]
+}

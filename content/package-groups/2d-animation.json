@@ -1,0 +1,40 @@
+{
+  "order": 1,
+  "category": "animation",
+  "title": "2D Animation Packages",
+  "tiers": [
+    {
+      "name": "Basic",
+      "price": "$180",
+      "features": [
+        { "item": "Simple 2D Animation" },
+        { "item": "Basic Idle Motion" },
+        { "item": "Talking Animation" },
+        { "item": "Simple Expressions" }
+      ]
+    },
+    {
+      "name": "Standard",
+      "price": "$550",
+      "features": [
+        { "item": "Live2D Ready Animation" },
+        { "item": "Idle + Talking + Emotes" },
+        { "item": "Smooth Motion" },
+        { "item": "Multiple Expressions" },
+        { "item": "Loop Animation" }
+      ]
+    },
+    {
+      "name": "Elite",
+      "price": "$1100",
+      "features": [
+        { "item": "Advanced Live2D Animation" },
+        { "item": "Professional Motion Effects" },
+        { "item": "Full Expression Set" },
+        { "item": "Custom Animated Scenes" },
+        { "item": "High Quality Export" },
+        { "item": "Commercial Use" }
+      ]
+    }
+  ]
+}

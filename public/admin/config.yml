@@ -576,41 +576,56 @@ collections:
           - { name: alt, label: 'Alt text', widget: string }
 
   # ─────────────────────────────────────────────────────────────
-  # PACKAGES
+  # PACKAGE GROUPS — pricing tiers, grouped under a service category
   # ─────────────────────────────────────────────────────────────
-  - name: packages
+  - name: package_groups
     label: 'Packages'
-    label_singular: 'Package'
-    description: 'Pricing plans shown on the Packages page.'
-    folder: content/packages
+    label_singular: 'Package Group'
+    description: >-
+      Pricing shown on the Packages page. Each entry is one offering (e.g.
+      "Logo Design Packages") with three tiers — Basic, Standard, Elite.
+      The Category controls which section of the Packages page it appears
+      in and which service page it's linked from.
+    folder: content/package-groups
     create: true
     delete: true
     extension: json
     slug: '{{slug}}'
-    identifier_field: name
-    summary: '{{order}}. {{name}} — {{price}}'
-    sortable_fields: ['order', 'name']
+    identifier_field: title
+    summary: '{{title}} ({{category}})'
+    sortable_fields: ['order', 'category', 'title']
+    view_groups:
+      - { label: 'Category', field: category }
     fields:
       - { name: order, label: 'Display order', widget: number, value_type: int, min: 1, default: 1 }
-      - { name: name, label: 'Plan name', widget: string }
-      - { name: price, label: 'Price', widget: string, hint: 'e.g. From $149' }
       - {
-          name: featured,
-          label: 'Highlight this plan',
-          widget: boolean,
-          default: false,
-          hint: 'Adds the purple border and badge.',
+          name: category,
+          label: 'Category',
+          widget: select,
+          options: ['animation', 'vtuber-models', 'graphic-design', 'comic-services'],
+          hint: 'Which section of the Packages page this appears under. Must match a service page slug.',
         }
-      - { name: badge, label: 'Badge text', widget: string, required: false, default: 'Most Popular' }
-      - name: features
-        label: "What's included"
-        label_singular: 'Feature'
+      - { name: title, label: 'Package name', widget: string, hint: 'e.g. Logo Design Packages' }
+      - name: tiers
+        label: 'Pricing tiers'
+        label_singular: 'Tier'
         widget: list
+        min: 3
+        max: 3
         collapsed: false
-        summary: '{{fields.item}}'
+        summary: '{{fields.name}} — {{fields.price}}'
+        hint: 'Always exactly 3 tiers: Basic, Standard, Elite. The tier named "Standard" gets the highlighted "Popular" styling.'
         fields:
-          - { name: item, label: 'Feature', widget: string }
-      - { name: ctaLabel, label: 'Button text', widget: string, default: 'Choose Plan' }
+          - { name: name, label: 'Tier name', widget: string, hint: 'Basic, Standard, or Elite' }
+          - { name: price, label: 'Price', widget: string, hint: 'e.g. $180' }
+          - name: features
+            label: "What's included"
+            label_singular: 'Feature'
+            widget: list
+            collapsed: false
+            summary: '{{fields.item}}'
+            fields:
+              - { name: item, label: 'Feature', widget: string }
 
   # ─────────────────────────────────────────────────────────────
   # FAQ

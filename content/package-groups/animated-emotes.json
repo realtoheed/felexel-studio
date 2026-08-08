@@ -1,0 +1,40 @@
+{
+  "order": 6,
+  "category": "vtuber-models",
+  "title": "Animated Emotes Package",
+  "tiers": [
+    {
+      "name": "Basic",
+      "price": "$120",
+      "features": [
+        { "item": "3 Custom Emotes" },
+        { "item": "Chibi / Anime Style" },
+        { "item": "PNG Ready" },
+        { "item": "Stream Ready Files" }
+      ]
+    },
+    {
+      "name": "Standard",
+      "price": "$320",
+      "features": [
+        { "item": "7 Custom Emotes" },
+        { "item": "+1 FREE Extra Emote (Gift From My Side)" },
+        { "item": "Multiple Expressions" },
+        { "item": "Animated Style" },
+        { "item": "HD Export" }
+      ]
+    },
+    {
+      "name": "Elite",
+      "price": "$640",
+      "features": [
+        { "item": "15 Custom Emotes" },
+        { "item": "+3 FREE Extra Emotes" },
+        { "item": "Premium Anime Style" },
+        { "item": "Animated Emotes" },
+        { "item": "Stream Ready Files" },
+        { "item": "Commercial Use" }
+      ]
+    }
+  ]
+}

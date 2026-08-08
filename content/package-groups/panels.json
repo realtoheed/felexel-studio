@@ -1,0 +1,37 @@
+{
+  "order": 9,
+  "category": "graphic-design",
+  "title": "Panels Packages",
+  "tiers": [
+    {
+      "name": "Basic",
+      "price": "$60",
+      "features": [
+        { "item": "3 Stream Panels" },
+        { "item": "Simple Theme" },
+        { "item": "HD Quality" }
+      ]
+    },
+    {
+      "name": "Standard",
+      "price": "$150",
+      "features": [
+        { "item": "7 Custom Stream Panels" },
+        { "item": "+1 FREE Extra Panel" },
+        { "item": "Matching Stream Style" },
+        { "item": "HD Resolution" }
+      ]
+    },
+    {
+      "name": "Elite",
+      "price": "$300",
+      "features": [
+        { "item": "15 Premium Stream Panels" },
+        { "item": "+3 FREE Extra Panels" },
+        { "item": "Unlimited Revisions" },
+        { "item": "Source Files" },
+        { "item": "Professional Stream Branding" }
+      ]
+    }
+  ]
+}

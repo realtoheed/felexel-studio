@@ -1,0 +1,37 @@
+{
+  "order": 10,
+  "category": "graphic-design",
+  "title": "Sub Badges Design Packages",
+  "tiers": [
+    {
+      "name": "Basic",
+      "price": "$50",
+      "features": [
+        { "item": "3 Custom Badge Designs" },
+        { "item": "PNG Format" },
+        { "item": "Matching Style" }
+      ]
+    },
+    {
+      "name": "Standard",
+      "price": "$120",
+      "features": [
+        { "item": "7 Tier Badges" },
+        { "item": "+1 FREE Extra Badge" },
+        { "item": "Matching Style" },
+        { "item": "HD PNG Files" }
+      ]
+    },
+    {
+      "name": "Elite",
+      "price": "$250",
+      "features": [
+        { "item": "15 Premium Tier Badges" },
+        { "item": "+3 FREE Extra Badges" },
+        { "item": "Unique Custom Designs" },
+        { "item": "Ready to Upload" },
+        { "item": "Commercial Use" }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "order": 5,
+  "category": "vtuber-models",
+  "title": "PNGTuber Avatar Pack Packages",
+  "tiers": [
+    {
+      "name": "Basic",
+      "price": "$80",
+      "features": [
+        { "item": "Basic PNG Avatar" },
+        { "item": "1 Expression" }
+      ]
+    },
+    {
+      "name": "Standard",
+      "price": "$220",
+      "features": [
+        { "item": "Multiple Expressions" },
+        { "item": "Accessories Included" },
+        { "item": "Stream Ready PNGs" }
+      ]
+    },
+    {
+      "name": "Elite",
+      "price": "$450",
+      "features": [
+        { "item": "Premium PNGTuber Pack" },
+        { "item": "Full Expressions" },
+        { "item": "Props & Accessories" },
+        { "item": "High Resolution Files" }
+      ]
+    }
+  ]
+}

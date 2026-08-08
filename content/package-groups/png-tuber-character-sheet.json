@@ -1,0 +1,35 @@
+{
+  "order": 4,
+  "category": "vtuber-models",
+  "title": "PNG Tuber Character Sheet Packages",
+  "tiers": [
+    {
+      "name": "Basic",
+      "price": "$120",
+      "features": [
+        { "item": "Front View Character" },
+        { "item": "Basic Expression" }
+      ]
+    },
+    {
+      "name": "Standard",
+      "price": "$320",
+      "features": [
+        { "item": "Front + Side Views" },
+        { "item": "Multiple Expressions" },
+        { "item": "Outfit Variation" }
+      ]
+    },
+    {
+      "name": "Elite",
+      "price": "$600",
+      "features": [
+        { "item": "Full Character Sheet" },
+        { "item": "Front / Side / Back View" },
+        { "item": "Full Expression Sheet" },
+        { "item": "Transparent PNG" },
+        { "item": "High Resolution" }
+      ]
+    }
+  ]
+}

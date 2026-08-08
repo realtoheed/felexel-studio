@@ -1,0 +1,45 @@
+{
+  "order": 2,
+  "category": "animation",
+  "title": "3D Animation Packages",
+  "tiers": [
+    {
+      "name": "Basic",
+      "price": "$250",
+      "features": [
+        { "item": "Simple 3D Character Animation" },
+        { "item": "Basic Facial Expressions" },
+        { "item": "Simple Gestures" },
+        { "item": "Short Loop Animation" },
+        { "item": "HD Export" }
+      ]
+    },
+    {
+      "name": "Standard",
+      "price": "$700",
+      "features": [
+        { "item": "Advanced 3D Character Animation" },
+        { "item": "VTuber Animation Style" },
+        { "item": "Multiple Facial Expressions" },
+        { "item": "Gestures & Emotes" },
+        { "item": "Loop / Non-Loop Animation" },
+        { "item": "Smooth Motion" },
+        { "item": "Background Effects" }
+      ]
+    },
+    {
+      "name": "Elite",
+      "price": "$1500",
+      "features": [
+        { "item": "Premium Cinematic 3D Animation" },
+        { "item": "Full VTuber Animation Setup" },
+        { "item": "Advanced Facial Tracking Style" },
+        { "item": "Complex Gestures & Emotes" },
+        { "item": "Custom Scenes & Effects" },
+        { "item": "Ultra Smooth Animation" },
+        { "item": "Commercial Use" },
+        { "item": "Priority Delivery" }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "order": 7,
+  "category": "graphic-design",
+  "title": "Logo Design Packages",
+  "tiers": [
+    {
+      "name": "Basic",
+      "price": "$80",
+      "features": [
+        { "item": "Text Logo" },
+        { "item": "2 Concepts" },
+        { "item": "PNG File" }
+      ]
+    },
+    {
+      "name": "Standard",
+      "price": "$220",
+      "features": [
+        { "item": "Mascot or Text Logo" },
+        { "item": "4 Concepts" },
+        { "item": "High Resolution Files" },
+        { "item": "Transparent PNG" }
+      ]
+    },
+    {
+      "name": "Elite",
+      "price": "$450",
+      "features": [
+        { "item": "Premium VTuber Logo" },
+        { "item": "Custom Mascot Design" },
+        { "item": "Multiple Revisions" },
+        { "item": "Source Files" },
+        { "item": "Commercial Use" }
+      ]
+    }
+  ]
+}

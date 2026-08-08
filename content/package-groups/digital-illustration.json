@@ -1,0 +1,34 @@
+{
+  "order": 12,
+  "category": "comic-services",
+  "title": "Digital Illustration Services",
+  "tiers": [
+    {
+      "name": "Basic",
+      "price": "$100",
+      "features": [
+        { "item": "Simple Character Art" },
+        { "item": "Flat Colors" }
+      ]
+    },
+    {
+      "name": "Standard",
+      "price": "$280",
+      "features": [
+        { "item": "Full Color Illustration" },
+        { "item": "Background Included" },
+        { "item": "Anime Style Artwork" }
+      ]
+    },
+    {
+      "name": "Elite",
+      "price": "$550",
+      "features": [
+        { "item": "Premium Detailed Illustration" },
+        { "item": "Custom Background Scene" },
+        { "item": "Commercial Use" },
+        { "item": "High Resolution Artwork" }
+      ]
+    }
+  ]
+}

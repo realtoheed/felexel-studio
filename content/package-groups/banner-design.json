@@ -1,0 +1,36 @@
+{
+  "order": 8,
+  "category": "graphic-design",
+  "title": "Banner Design Packages",
+  "tiers": [
+    {
+      "name": "Basic",
+      "price": "$70",
+      "features": [
+        { "item": "Simple Banner" },
+        { "item": "Twitch or YouTube Size" },
+        { "item": "Basic Design" }
+      ]
+    },
+    {
+      "name": "Standard",
+      "price": "$180",
+      "features": [
+        { "item": "Custom Social Media Banner" },
+        { "item": "Matching Theme" },
+        { "item": "HD Quality" },
+        { "item": "Custom Artwork" }
+      ]
+    },
+    {
+      "name": "Elite",
+      "price": "$350",
+      "features": [
+        { "item": "Premium Banner Pack" },
+        { "item": "Advanced Artwork" },
+        { "item": "Source Files" },
+        { "item": "Commercial Use" }
+      ]
+    }
+  ]
+}

@@ -261,7 +261,7 @@ export default function ServiceDetailPage({ service }: { service: ServiceCategor
                 Queries? Contact Us
               </Link>
               <Link
-                href="/packages"
+                href={`/packages#${service.slug}`}
                 className="inline-flex items-center justify-center rounded-full px-7 py-3.5 text-[15px] font-semibold bg-text-dim/8 hover:bg-text-dim/15 transition-colors"
               >
                 View Packages
