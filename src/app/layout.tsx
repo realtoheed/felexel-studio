@@ -9,6 +9,7 @@ import Footer from "@/components/Footer";
 import WarningTicker from "@/components/WarningTicker";
 import ThemeProvider from "@/components/ThemeProvider";
 import IdentityRedirect from "@/components/IdentityRedirect";
+import NetlifyFormsFallback from "@/components/NetlifyFormsFallback";
 import { getServices, getSite } from "@/lib/content";
 
 const inter = Inter({
@@ -49,6 +50,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       <body className="min-h-full flex flex-col bg-bg text-text">
         <ThemeProvider>
           <IdentityRedirect />
+          <NetlifyFormsFallback />
           <div className="noise-overlay" />
           <ProgressBar />
           <SmoothScroll>

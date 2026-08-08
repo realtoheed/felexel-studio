@@ -3,7 +3,7 @@ import PageHero from "@/components/PageHero";
 import VerificationSteps from "@/components/VerificationSteps";
 import AffiliatedArtist from "@/components/AffiliatedArtist";
 import FaqSection from "@/components/FaqSection";
-import { getContact, getMisc, getSite } from "@/lib/content";
+import { getMisc, getSite } from "@/lib/content";
 
 export function generateMetadata(): Metadata {
   const { verifyHero } = getMisc();
@@ -15,7 +15,6 @@ export function generateMetadata(): Metadata {
 
 export default function AffiliatedArtistPage() {
   const { verifyHero } = getMisc();
-  const contact = getContact();
 
   return (
     <>
@@ -25,7 +24,7 @@ export default function AffiliatedArtistPage() {
         subtitle={verifyHero.subtitle}
       />
       <VerificationSteps />
-      <AffiliatedArtist contactEmail={contact.contactEmail} />
+      <AffiliatedArtist />
       <FaqSection />
     </>
   );
