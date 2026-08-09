@@ -6,6 +6,8 @@ import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import Logo from "./Logo";
 import ThemeToggle from "./ThemeToggle";
+import PayNowButton from "./PayNowButton";
+import type { PaymentSettings } from "@/lib/content";
 
 export type NavService = { slug: string; label: string; navDesc: string };
 
@@ -27,11 +29,15 @@ export default function Navbar({
   logoDark,
   logoLight,
   siteName,
+  payments,
+  whatsappLink,
 }: {
   services: NavService[];
   logoDark: string;
   logoLight: string;
   siteName: string;
+  payments: PaymentSettings;
+  whatsappLink: string;
 }) {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
@@ -66,12 +72,17 @@ export default function Navbar({
     <header
       className={`fixed top-0 left-0 right-0 z-[1000] transition-all duration-300 ${
         scrolled
-          ? "bg-bg/75 backdrop-blur-xl border-b border-text-dim/10 py-3"
-          : "py-4"
+          ? "bg-bg/75 backdrop-blur-xl border-b border-text-dim/10 py-2"
+          : "py-3"
       }`}
     >
       <div className="max-w-[1200px] mx-auto px-6 flex items-center justify-between">
-        <Logo darkSrc={logoDark} lightSrc={logoLight} siteName={siteName} />
+        <Logo
+          darkSrc={logoDark}
+          lightSrc={logoLight}
+          siteName={siteName}
+          imgClassName="h-[72px] w-auto"
+        />
 
         <nav className="hidden lg:flex items-center gap-5">
           <Link
@@ -170,6 +181,7 @@ export default function Navbar({
           >
             Get Started
           </Link>
+          <PayNowButton payments={payments} whatsappLink={whatsappLink} />
         </div>
 
         <div className="flex items-center gap-2 lg:hidden">
@@ -272,6 +284,10 @@ export default function Navbar({
                   {l.label}
                 </Link>
               ))}
+
+              <div className="mt-2">
+                <PayNowButton payments={payments} whatsappLink={whatsappLink} />
+              </div>
             </div>
           </motion.nav>
         )}

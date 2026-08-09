@@ -36,7 +36,7 @@ export default function ServiceDetailPage({ service }: { service: ServiceCategor
   return (
     <>
       {/* 1. Hero image banner with text overlay */}
-      <section className="relative pt-28 md:pt-32">
+      <section className="relative pt-36 md:pt-40">
         <ParallaxImage
           src={service.heroImage.src}
           alt={service.heroImage.alt}

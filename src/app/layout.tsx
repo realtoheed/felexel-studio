@@ -9,7 +9,7 @@ import Footer from "@/components/Footer";
 import WarningTicker from "@/components/WarningTicker";
 import ThemeProvider from "@/components/ThemeProvider";
 import IdentityRedirect from "@/components/IdentityRedirect";
-import { getServices, getSite } from "@/lib/content";
+import { getPayments, getServices, getSite, getWhatsappLink } from "@/lib/content";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -34,6 +34,7 @@ export function generateMetadata(): Metadata {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   const site = getSite();
+  const payments = getPayments();
   const services = getServices().map((s) => ({
     slug: s.slug,
     label: s.label,
@@ -57,6 +58,8 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
               logoDark={site.logoDark}
               logoLight={site.logoLight}
               siteName={site.siteName}
+              payments={payments}
+              whatsappLink={getWhatsappLink()}
             />
             <main>{children}</main>
             <WarningTicker />

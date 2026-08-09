@@ -146,6 +146,30 @@ collections:
               - { name: url, label: 'Profile URL', widget: string }
               - { name: enabled, label: 'Show this icon', widget: boolean, default: true }
 
+      - name: payments
+        label: 'Payments (PayPal)'
+        file: content/settings/payments.json
+        description: >-
+          Once you have a PayPal Business account, paste your Client ID here
+          to turn on the PayPal button in the "Pay Now" popup. Leave blank
+          and visitors will be sent to WhatsApp to arrange payment instead —
+          get your Client ID from developer.paypal.com under Apps & Credentials.
+        fields:
+          - {
+              name: paypalClientId,
+              label: 'PayPal Client ID',
+              widget: string,
+              required: false,
+              hint: 'Leave empty to hide the PayPal button and use WhatsApp only.',
+            }
+          - {
+              name: paypalCurrency,
+              label: 'Currency',
+              widget: select,
+              options: ['USD', 'EUR', 'GBP'],
+              default: 'USD',
+            }
+
   # ─────────────────────────────────────────────────────────────
   # PAGES — the copy on each page
   # ─────────────────────────────────────────────────────────────

@@ -34,6 +34,11 @@ export type SocialSettings = {
   links: { platform: string; url: string; enabled: boolean }[];
 };
 
+export type PaymentSettings = {
+  paypalClientId: string;
+  paypalCurrency: string;
+};
+
 export type ServiceCategory = {
   order: number;
   slug: string;
@@ -230,6 +235,7 @@ function slugify(value: string) {
 export const getSite = () => readJson<SiteSettings>("settings", "site.json");
 export const getContact = () => readJson<ContactSettings>("settings", "contact.json");
 export const getSocial = () => readJson<SocialSettings>("settings", "social.json");
+export const getPayments = () => readJson<PaymentSettings>("settings", "payments.json");
 export const getHome = () => readJson<HomeContent>("pages", "home.json");
 export const getAbout = () => readJson<AboutContent>("pages", "about.json");
 export const getMisc = () => readJson<MiscContent>("pages", "misc.json");
@@ -257,8 +263,9 @@ export function getPackageGroupsByCategory(category: string) {
 
 /* ---------------- derived helpers ---------------- */
 
-export function getWhatsappLink() {
-  return `https://wa.me/${getContact().whatsappNumber.replace(/[^0-9]/g, "")}`;
+export function getWhatsappLink(message?: string) {
+  const base = `https://wa.me/${getContact().whatsappNumber.replace(/[^0-9]/g, "")}`;
+  return message ? `${base}?text=${encodeURIComponent(message)}` : base;
 }
 
 /** Replaces the {email} token editors use in CMS copy with a real address. */

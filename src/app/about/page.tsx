@@ -20,7 +20,7 @@ export function generateMetadata(): Metadata {
 export default function AboutPage() {
   const home = getHome();
   return (
-    <div className="pt-32">
+    <div className="pt-40">
       <About />
       <SkillsMarquee />
       <Stats stats={home.stats} />

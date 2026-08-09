@@ -10,7 +10,7 @@ export default function PageHero({
   subtitle?: string;
 }) {
   return (
-    <section className="relative px-6 pt-40 pb-16 text-center overflow-hidden">
+    <section className="relative px-6 pt-48 pb-16 text-center overflow-hidden">
       <div
         className="absolute -inset-[20%] -z-10 blur-[70px]"
         style={{

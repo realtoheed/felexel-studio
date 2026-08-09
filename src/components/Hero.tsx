@@ -40,7 +40,7 @@ export default function Hero({ content }: { content: HomeContent }) {
     <section
       ref={ref}
       id="home"
-      className="relative min-h-screen flex items-center justify-center text-center overflow-hidden px-6 pt-32 pb-16"
+      className="relative min-h-screen flex items-center justify-center text-center overflow-hidden px-6 pt-40 pb-16"
     >
       <motion.div
         style={{ y: bgY }}

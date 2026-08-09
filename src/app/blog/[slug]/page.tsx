@@ -41,7 +41,7 @@ export default async function BlogPostPage({
 
   return (
     <>
-      <article className="max-w-[800px] mx-auto px-6 pt-40 pb-[100px]">
+      <article className="max-w-[800px] mx-auto px-6 pt-48 pb-[100px]">
         <Reveal direction="up">
           <Link
             href="/blog"

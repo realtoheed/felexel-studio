@@ -7,12 +7,14 @@ import Link from "next/link";
 
 export default function Logo({
   className = "",
+  imgClassName = "h-9 w-auto",
   variant,
   darkSrc,
   lightSrc,
   siteName,
 }: {
   className?: string;
+  imgClassName?: string;
   variant?: "dark" | "light";
   darkSrc: string;
   lightSrc: string;
@@ -34,7 +36,7 @@ export default function Logo({
         width={1348}
         height={416}
         priority
-        className="h-9 w-auto"
+        className={imgClassName}
       />
     </Link>
   );
