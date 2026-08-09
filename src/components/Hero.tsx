@@ -21,7 +21,6 @@ export default function Hero({ content }: { content: HomeContent }) {
   });
 
   const bgY = useTransform(scrollYProgress, [0, 1], ["0%", "30%"]);
-  const bgScale = useTransform(scrollYProgress, [0, 1], [1, 1.25]);
   const contentOpacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
   const contentY = useTransform(scrollYProgress, [0, 1], ["0%", "20%"]);
 
@@ -44,7 +43,7 @@ export default function Hero({ content }: { content: HomeContent }) {
       className="relative min-h-screen flex items-center justify-center text-center overflow-hidden px-6 pt-32 pb-16"
     >
       <motion.div
-        style={{ y: bgY, scale: bgScale }}
+        style={{ y: bgY }}
         className="absolute -inset-[20%] -z-10 blur-[60px]"
       >
         <div

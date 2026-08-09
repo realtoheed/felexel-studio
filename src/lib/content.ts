@@ -86,16 +86,40 @@ export type PackageGroup = {
   tiers: PackageTier[];
 };
 
+export type CategoryTheme = { accent: string; accent2: string };
+
 /**
  * Maps a package group's `category` (and a service's slug) to the section
  * shown on /packages. Keep in sync with the `category` select options in
  * public/admin/config.yml and with the service slugs in content/services/*.
+ * Each category gets its own accent pair so the /packages page reads as
+ * distinct sections rather than one long repeated card list.
  */
-export const PACKAGE_CATEGORIES: { slug: string; label: string; blurb: string }[] = [
-  { slug: "animation", label: "Animation", blurb: "2D & 3D character and scene animation." },
-  { slug: "vtuber-models", label: "VTuber Models", blurb: "VTuber models, PNGTuber assets & animated emotes." },
-  { slug: "graphic-design", label: "Graphic Design", blurb: "Logos, banners, panels, badges & emotes." },
-  { slug: "comic-services", label: "Comic Services", blurb: "Character and scene illustration." },
+export const PACKAGE_CATEGORIES: { slug: string; label: string; blurb: string; theme: CategoryTheme }[] = [
+  {
+    slug: "animation",
+    label: "Animation",
+    blurb: "2D & 3D character and scene animation.",
+    theme: { accent: "#a855f7", accent2: "#7c3aed" },
+  },
+  {
+    slug: "vtuber-models",
+    label: "VTuber Models",
+    blurb: "VTuber models, PNGTuber assets & animated emotes.",
+    theme: { accent: "#3b82f6", accent2: "#06b6d4" },
+  },
+  {
+    slug: "graphic-design",
+    label: "Graphic Design",
+    blurb: "Logos, banners, panels, badges & emotes.",
+    theme: { accent: "#ec4899", accent2: "#f43f5e" },
+  },
+  {
+    slug: "comic-services",
+    label: "Comic Services",
+    blurb: "Character and scene illustration.",
+    theme: { accent: "#f59e0b", accent2: "#f97316" },
+  },
 ];
 
 export type FaqItem = { order: number; question: string; answer: string };
