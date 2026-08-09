@@ -4,6 +4,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import PopIn from "./PopIn";
 import type { HomeContent } from "@/lib/content";
 
 const FLOAT_POSITIONS = [
@@ -59,51 +60,39 @@ export default function Hero({ content }: { content: HomeContent }) {
         style={{ opacity: contentOpacity, y: contentY }}
         className="relative z-10 max-w-[820px]"
       >
-        <motion.p
-          initial={{ opacity: 0, scale: 0.75 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ type: "spring", stiffness: 260, damping: 20 }}
-          className="text-[13px] font-semibold tracking-[0.15em] text-accent-3 mb-[18px]"
-        >
-          {content.hero.eyebrow}
-        </motion.p>
-        <motion.h1
-          initial={{ opacity: 0, y: -36, scale: 0.85 }}
-          animate={{ opacity: 1, y: 0, scale: 1 }}
-          transition={{ type: "spring", stiffness: 260, damping: 20, delay: 0.1 }}
-          className="text-[clamp(36px,6vw,68px)] leading-[1.05] font-semibold mb-[22px]"
-        >
-          {titleParts[0]}
-          {titleParts[1] && <span className="grad-text">{titleParts[1]}</span>}
-          {titleParts[2]}
-        </motion.h1>
-        <motion.p
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="text-lg text-text-dim max-w-[600px] mx-auto mb-9"
-        >
-          {content.hero.subtitle}
-        </motion.p>
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.3 }}
-          className="flex gap-4 justify-center flex-wrap"
-        >
-          <Link
-            href={content.hero.primaryCta.href}
-            className="inline-flex items-center justify-center rounded-full px-7 py-3.5 text-[15px] font-semibold text-white grad-bg shadow-[0_8px_30px_-8px_rgba(139,92,246,0.6)] transition-transform hover:-translate-y-1"
-          >
-            {content.hero.primaryCta.label}
-          </Link>
-          <Link
-            href={content.hero.secondaryCta.href}
-            className="inline-flex items-center justify-center rounded-full px-7 py-3.5 text-[15px] font-semibold bg-text-dim/8 hover:bg-text-dim/15 transition-colors"
-          >
-            {content.hero.secondaryCta.label}
-          </Link>
-        </motion.div>
+        <PopIn variant="pop" delay={0}>
+          <p className="text-[13px] font-semibold tracking-[0.15em] text-accent-3 mb-[18px]">
+            {content.hero.eyebrow}
+          </p>
+        </PopIn>
+        <PopIn variant="bounce" delay={0.15}>
+          <h1 className="text-[clamp(36px,6vw,68px)] leading-[1.05] font-semibold mb-[22px]">
+            {titleParts[0]}
+            {titleParts[1] && <span className="grad-text">{titleParts[1]}</span>}
+            {titleParts[2]}
+          </h1>
+        </PopIn>
+        <PopIn variant="up" delay={0.35}>
+          <p className="text-lg text-text-dim max-w-[600px] mx-auto mb-9">
+            {content.hero.subtitle}
+          </p>
+        </PopIn>
+        <PopIn variant="up" delay={0.5}>
+          <div className="flex gap-4 justify-center flex-wrap">
+            <Link
+              href={content.hero.primaryCta.href}
+              className="inline-flex items-center justify-center rounded-full px-7 py-3.5 text-[15px] font-semibold text-white grad-bg shadow-[0_8px_30px_-8px_rgba(139,92,246,0.6)] transition-transform hover:-translate-y-1"
+            >
+              {content.hero.primaryCta.label}
+            </Link>
+            <Link
+              href={content.hero.secondaryCta.href}
+              className="inline-flex items-center justify-center rounded-full px-7 py-3.5 text-[15px] font-semibold bg-text-dim/8 hover:bg-text-dim/15 transition-colors"
+            >
+              {content.hero.secondaryCta.label}
+            </Link>
+          </div>
+        </PopIn>
       </motion.div>
 
       <div className="hidden lg:block">

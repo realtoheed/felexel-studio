@@ -165,6 +165,12 @@ export type HomeContent = {
   };
   skills: { icon: string; label: string }[];
   support: { text: string; ctaLabel: string };
+  platforms: {
+    eyebrow: string;
+    title: string;
+    subtitle: string;
+    items: { logo: string; icon: string; label: string }[];
+  };
 };
 
 export type AboutContent = {

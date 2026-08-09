@@ -256,7 +256,7 @@ collections:
                 collapsed: false
                 summary: '{{fields.title}}'
                 fields:
-                  - { name: icon, label: 'Icon', widget: select, options: ['badge-check', 'book-open', 'brush', 'camera', 'clapperboard', 'clock', 'code', 'credit-card', 'file-search', 'landmark', 'layers', 'life-buoy', 'mail', 'message-circle', 'palette', 'pen-tool', 'radio', 'shapes', 'shield-check', 'smile', 'sparkles', 'star', 'video', 'wallet', 'wand'] }
+                  - { name: icon, label: 'Icon', widget: select, options: ['badge-check', 'book-open', 'brush', 'camera', 'cast', 'clapperboard', 'clock', 'code', 'credit-card', 'file-search', 'landmark', 'layers', 'life-buoy', 'mail', 'message-circle', 'palette', 'pen-tool', 'radio', 'shapes', 'shield-check', 'sliders', 'smile', 'sparkles', 'star', 'tv', 'video', 'wallet', 'wand', 'play-circle'] }
                   - { name: title, label: 'Title', widget: string }
                   - { name: desc, label: 'Description', widget: text }
           - name: process
@@ -283,7 +283,7 @@ collections:
             collapsed: true
             summary: '{{fields.label}}'
             fields:
-              - { name: icon, label: 'Icon', widget: select, options: ['badge-check', 'book-open', 'brush', 'camera', 'clapperboard', 'clock', 'code', 'credit-card', 'file-search', 'landmark', 'layers', 'life-buoy', 'mail', 'message-circle', 'palette', 'pen-tool', 'radio', 'shapes', 'shield-check', 'smile', 'sparkles', 'star', 'video', 'wallet', 'wand'] }
+              - { name: icon, label: 'Icon', widget: select, options: ['badge-check', 'book-open', 'brush', 'camera', 'cast', 'clapperboard', 'clock', 'code', 'credit-card', 'file-search', 'landmark', 'layers', 'life-buoy', 'mail', 'message-circle', 'palette', 'pen-tool', 'radio', 'shapes', 'shield-check', 'sliders', 'smile', 'sparkles', 'star', 'tv', 'video', 'wallet', 'wand', 'play-circle'] }
               - { name: label, label: 'Text', widget: string }
           - name: support
             label: 'Support banner'
@@ -297,6 +297,35 @@ collections:
                   hint: 'Write {email} where the support address should appear.',
                 }
               - { name: ctaLabel, label: 'Button text', widget: string }
+          - name: platforms
+            label: 'Platforms & tools section'
+            widget: object
+            collapsed: true
+            fields:
+              - { name: eyebrow, label: 'Small label', widget: string }
+              - { name: title, label: 'Heading', widget: string }
+              - { name: subtitle, label: 'Subheading', widget: text }
+              - name: items
+                label: 'Platforms'
+                label_singular: 'Platform'
+                widget: list
+                collapsed: true
+                summary: '{{fields.label}}'
+                fields:
+                  - {
+                      name: logo,
+                      label: 'Logo image (optional)',
+                      widget: image,
+                      required: false,
+                      hint: 'Upload the platform/software logo. Leave empty to show a generic icon instead.',
+                    }
+                  - {
+                      name: icon,
+                      label: 'Fallback icon (used if no logo uploaded)',
+                      widget: select,
+                      options: ['badge-check', 'book-open', 'brush', 'camera', 'cast', 'clapperboard', 'clock', 'code', 'credit-card', 'file-search', 'landmark', 'layers', 'life-buoy', 'mail', 'message-circle', 'palette', 'pen-tool', 'radio', 'shapes', 'shield-check', 'sliders', 'smile', 'sparkles', 'star', 'tv', 'video', 'wallet', 'wand', 'play-circle'],
+                    }
+                  - { name: label, label: 'Platform name', widget: string }
 
       - name: about
         label: 'About Page'
@@ -333,7 +362,7 @@ collections:
                 collapsed: false
                 summary: '{{fields.label}}'
                 fields:
-                  - { name: icon, label: 'Icon', widget: select, options: ['badge-check', 'book-open', 'brush', 'camera', 'clapperboard', 'clock', 'code', 'credit-card', 'file-search', 'landmark', 'layers', 'life-buoy', 'mail', 'message-circle', 'palette', 'pen-tool', 'radio', 'shapes', 'shield-check', 'smile', 'sparkles', 'star', 'video', 'wallet', 'wand'] }
+                  - { name: icon, label: 'Icon', widget: select, options: ['badge-check', 'book-open', 'brush', 'camera', 'cast', 'clapperboard', 'clock', 'code', 'credit-card', 'file-search', 'landmark', 'layers', 'life-buoy', 'mail', 'message-circle', 'palette', 'pen-tool', 'radio', 'shapes', 'shield-check', 'sliders', 'smile', 'sparkles', 'star', 'tv', 'video', 'wallet', 'wand', 'play-circle'] }
                   - { name: label, label: 'Label', widget: string }
 
       - name: misc
@@ -403,7 +432,7 @@ collections:
             collapsed: true
             summary: '{{fields.title}}'
             fields:
-              - { name: icon, label: 'Icon', widget: select, options: ['badge-check', 'book-open', 'brush', 'camera', 'clapperboard', 'clock', 'code', 'credit-card', 'file-search', 'landmark', 'layers', 'life-buoy', 'mail', 'message-circle', 'palette', 'pen-tool', 'radio', 'shapes', 'shield-check', 'smile', 'sparkles', 'star', 'video', 'wallet', 'wand'] }
+              - { name: icon, label: 'Icon', widget: select, options: ['badge-check', 'book-open', 'brush', 'camera', 'cast', 'clapperboard', 'clock', 'code', 'credit-card', 'file-search', 'landmark', 'layers', 'life-buoy', 'mail', 'message-circle', 'palette', 'pen-tool', 'radio', 'shapes', 'shield-check', 'sliders', 'smile', 'sparkles', 'star', 'tv', 'video', 'wallet', 'wand', 'play-circle'] }
               - { name: title, label: 'Title', widget: string }
               - { name: desc, label: 'Description', widget: text }
           - name: blogHero
@@ -428,7 +457,7 @@ collections:
                 collapsed: false
                 summary: '{{fields.label}}'
                 fields:
-                  - { name: icon, label: 'Icon', widget: select, options: ['badge-check', 'book-open', 'brush', 'camera', 'clapperboard', 'clock', 'code', 'credit-card', 'file-search', 'landmark', 'layers', 'life-buoy', 'mail', 'message-circle', 'palette', 'pen-tool', 'radio', 'shapes', 'shield-check', 'smile', 'sparkles', 'star', 'video', 'wallet', 'wand'] }
+                  - { name: icon, label: 'Icon', widget: select, options: ['badge-check', 'book-open', 'brush', 'camera', 'cast', 'clapperboard', 'clock', 'code', 'credit-card', 'file-search', 'landmark', 'layers', 'life-buoy', 'mail', 'message-circle', 'palette', 'pen-tool', 'radio', 'shapes', 'shield-check', 'sliders', 'smile', 'sparkles', 'star', 'tv', 'video', 'wallet', 'wand', 'play-circle'] }
                   - { name: label, label: 'Label', widget: string }
 
       - name: terms
@@ -486,7 +515,7 @@ collections:
           widget: string,
           hint: 'Used mid-sentence, e.g. "Ready to start your animation project?"',
         }
-      - { name: icon, label: 'Menu icon', widget: select, options: ['badge-check', 'book-open', 'brush', 'camera', 'clapperboard', 'clock', 'code', 'credit-card', 'file-search', 'landmark', 'layers', 'life-buoy', 'mail', 'message-circle', 'palette', 'pen-tool', 'radio', 'shapes', 'shield-check', 'smile', 'sparkles', 'star', 'video', 'wallet', 'wand'] }
+      - { name: icon, label: 'Menu icon', widget: select, options: ['badge-check', 'book-open', 'brush', 'camera', 'cast', 'clapperboard', 'clock', 'code', 'credit-card', 'file-search', 'landmark', 'layers', 'life-buoy', 'mail', 'message-circle', 'palette', 'pen-tool', 'radio', 'shapes', 'shield-check', 'sliders', 'smile', 'sparkles', 'star', 'tv', 'video', 'wallet', 'wand', 'play-circle'] }
       - {
           name: navDesc,
           label: 'Menu description',

@@ -2,6 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { CheckCircle2, MessageCircle } from "lucide-react";
 import Reveal from "./Reveal";
+import PopIn from "./PopIn";
 import BlurRevealSection from "./BlurRevealSection";
 import ParallaxImage from "./ParallaxImage";
 import TiltCard from "./TiltCard";
@@ -45,29 +46,37 @@ export default function ServiceDetailPage({ service }: { service: ServiceCategor
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-black/10" />
         <div className="absolute inset-0 flex items-center">
-          <Reveal direction="up" className="max-w-[1200px] w-full mx-auto px-6">
-            <p className="text-[13px] font-semibold tracking-[0.15em] text-[#c4b5fd] mb-[18px]">
-              {service.eyebrow}
-            </p>
-            <h1 className="text-[clamp(32px,5vw,54px)] font-semibold mb-5 max-w-[720px] text-white">
-              {service.ctaHeading}
-            </h1>
-            <p className="text-white/80 max-w-[560px] mb-8 text-[15.5px]">{service.ctaSub}</p>
-            <div className="flex gap-4 flex-wrap">
-              <Link
-                href="/contact"
-                className="inline-flex items-center justify-center rounded-full px-7 py-3.5 text-[15px] font-semibold text-white grad-bg shadow-[0_8px_30px_-8px_rgba(139,92,246,0.6)] transition-transform hover:-translate-y-1"
-              >
-                Get Started
-              </Link>
-              <Link
-                href="/portfolio"
-                className="inline-flex items-center justify-center rounded-full px-7 py-3.5 text-[15px] font-semibold bg-white/10 hover:bg-white/20 text-white backdrop-blur-sm transition-colors"
-              >
-                View Portfolio
-              </Link>
-            </div>
-          </Reveal>
+          <div className="max-w-[1200px] w-full mx-auto px-6">
+            <PopIn variant="pop" delay={0}>
+              <p className="text-[13px] font-semibold tracking-[0.15em] text-[#c4b5fd] mb-[18px]">
+                {service.eyebrow}
+              </p>
+            </PopIn>
+            <PopIn variant="bounce" delay={0.15}>
+              <h1 className="text-[clamp(32px,5vw,54px)] font-semibold mb-5 max-w-[720px] text-white">
+                {service.ctaHeading}
+              </h1>
+            </PopIn>
+            <PopIn variant="up" delay={0.35}>
+              <p className="text-white/80 max-w-[560px] mb-8 text-[15.5px]">{service.ctaSub}</p>
+            </PopIn>
+            <PopIn variant="up" delay={0.5}>
+              <div className="flex gap-4 flex-wrap">
+                <Link
+                  href="/contact"
+                  className="inline-flex items-center justify-center rounded-full px-7 py-3.5 text-[15px] font-semibold text-white grad-bg shadow-[0_8px_30px_-8px_rgba(139,92,246,0.6)] transition-transform hover:-translate-y-1"
+                >
+                  Get Started
+                </Link>
+                <Link
+                  href="/portfolio"
+                  className="inline-flex items-center justify-center rounded-full px-7 py-3.5 text-[15px] font-semibold bg-white/10 hover:bg-white/20 text-white backdrop-blur-sm transition-colors"
+                >
+                  View Portfolio
+                </Link>
+              </div>
+            </PopIn>
+          </div>
         </div>
       </section>
 

@@ -58,5 +58,21 @@
   "support": {
     "text": "If you encounter any issues or you require assistance, please contact us at {email}. We're committed to providing exceptional service and ensuring your experience with us is smooth and satisfactory.",
     "ctaLabel": "Queries?"
+  },
+  "platforms": {
+    "eyebrow": "WHERE WE WORK",
+    "title": "Built for every streaming & broadcast platform",
+    "subtitle": "Whatever you stream or broadcast on, we design and deliver assets that drop straight in.",
+    "items": [
+      { "logo": "", "icon": "tv", "label": "Twitch" },
+      { "logo": "", "icon": "radio", "label": "Streamlabs" },
+      { "logo": "", "icon": "message-circle", "label": "Discord" },
+      { "logo": "", "icon": "video", "label": "Facebook Gaming" },
+      { "logo": "", "icon": "play-circle", "label": "YouTube" },
+      { "logo": "", "icon": "cast", "label": "Wirecast" },
+      { "logo": "", "icon": "clapperboard", "label": "VidBlaster X" },
+      { "logo": "", "icon": "sliders", "label": "vMix" },
+      { "logo": "", "icon": "camera", "label": "OBS Studio" }
+    ]
   }
 }

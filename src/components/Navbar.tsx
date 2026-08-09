@@ -16,7 +16,6 @@ const LINKS = [
   { href: "/about", label: "About" },
   { href: "/portfolio", label: "Portfolio" },
   { href: "/packages", label: "Packages" },
-  { href: "/testimonials", label: "Testimonials" },
   { href: "/blog", label: "Blog" },
   { href: "/affiliated-artist", label: "Verify Artist" },
   { href: "/contact", label: "Contact" },

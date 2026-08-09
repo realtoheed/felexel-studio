@@ -30,20 +30,30 @@ const variantMap: Record<PopVariant, Variants> = {
   },
 };
 
+// Overshoots past 100% before settling — reads as a bounce/pop even though
+// it's a fixed-duration tween (springs finish too fast to guarantee a
+// minimum visible duration).
+const BOUNCE_EASE: [number, number, number, number] = [0.34, 1.56, 0.64, 1];
+
 /**
  * Mount-triggered entrance (vs. Reveal's scroll-triggered whileInView) —
  * for content that's already above the fold when a page loads, like page
  * titles, so it plays immediately instead of waiting for a scroll.
+ *
+ * Duration defaults to a full second so the pop/bounce/slide is clearly
+ * visible rather than flashing by.
  */
 export default function PopIn({
   children,
   variant = "bounce",
   delay = 0,
+  duration = 1,
   className = "",
 }: {
   children: ReactNode;
   variant?: PopVariant;
   delay?: number;
+  duration?: number;
   className?: string;
 }) {
   return (
@@ -52,7 +62,7 @@ export default function PopIn({
       initial="hidden"
       animate="visible"
       variants={variantMap[variant]}
-      transition={{ type: "spring", stiffness: 260, damping: 20, delay }}
+      transition={{ duration, ease: BOUNCE_EASE, delay }}
     >
       {children}
     </motion.div>

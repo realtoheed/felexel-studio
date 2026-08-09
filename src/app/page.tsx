@@ -1,6 +1,7 @@
 import Hero from "@/components/Hero";
 import SkillsMarquee from "@/components/SkillsMarquee";
 import ServiceCategoriesGrid from "@/components/ServiceCategoriesGrid";
+import PlatformsGrid from "@/components/PlatformsGrid";
 import Stats from "@/components/Stats";
 import WhyUs from "@/components/WhyUs";
 import Process from "@/components/Process";
@@ -19,6 +20,7 @@ export default function Home() {
       <Hero content={home} />
       <SkillsMarquee />
       <ServiceCategoriesGrid />
+      <PlatformsGrid />
       <Stats stats={home.stats} />
       <WhyUs />
       <Process />
