@@ -60,17 +60,17 @@ export default function Hero({ content }: { content: HomeContent }) {
         className="relative z-10 max-w-[820px]"
       >
         <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7 }}
+          initial={{ opacity: 0, scale: 0.75 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ type: "spring", stiffness: 260, damping: 20 }}
           className="text-[13px] font-semibold tracking-[0.15em] text-accent-3 mb-[18px]"
         >
           {content.hero.eyebrow}
         </motion.p>
         <motion.h1
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.1 }}
+          initial={{ opacity: 0, y: -36, scale: 0.85 }}
+          animate={{ opacity: 1, y: 0, scale: 1 }}
+          transition={{ type: "spring", stiffness: 260, damping: 20, delay: 0.1 }}
           className="text-[clamp(36px,6vw,68px)] leading-[1.05] font-semibold mb-[22px]"
         >
           {titleParts[0]}

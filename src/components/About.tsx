@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { CheckCircle2 } from "lucide-react";
 import Reveal from "./Reveal";
+import PopIn from "./PopIn";
 import { getAbout } from "@/lib/content";
 
 export default function About() {
@@ -32,12 +33,16 @@ export default function About() {
           </div>
         </Reveal>
         <Reveal direction="right">
-          <p className="text-[13px] font-semibold tracking-[0.15em] text-accent-3 mb-[18px]">
-            {about.eyebrow}
-          </p>
-          <h2 className="text-[clamp(28px,4vw,44px)] font-semibold mb-[18px]">
-            {about.title}
-          </h2>
+          <PopIn variant="pop">
+            <p className="text-[13px] font-semibold tracking-[0.15em] text-accent-3 mb-[18px]">
+              {about.eyebrow}
+            </p>
+          </PopIn>
+          <PopIn variant="bounce" delay={0.1}>
+            <h2 className="text-[clamp(28px,4vw,44px)] font-semibold mb-[18px]">
+              {about.title}
+            </h2>
+          </PopIn>
           <p className="text-text-dim mb-5">{about.body}</p>
           <ul className="space-y-3">
             {about.bullets.map((b) => (
