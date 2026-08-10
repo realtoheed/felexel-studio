@@ -6,7 +6,6 @@ import ProgressBar from "@/components/ProgressBar";
 import WhatsAppFloat from "@/components/WhatsAppFloat";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import WarningTicker from "@/components/WarningTicker";
 import ThemeProvider from "@/components/ThemeProvider";
 import IdentityRedirect from "@/components/IdentityRedirect";
 import { getPayments, getServices, getSite, getWhatsappLink } from "@/lib/content";
@@ -62,7 +61,6 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
               whatsappLink={getWhatsappLink()}
             />
             <main>{children}</main>
-            <WarningTicker />
             <Footer />
           </SmoothScroll>
           <WhatsAppFloat />

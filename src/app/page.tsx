@@ -1,4 +1,5 @@
 import Hero from "@/components/Hero";
+import WarningTicker from "@/components/WarningTicker";
 import SkillsMarquee from "@/components/SkillsMarquee";
 import ServiceCategoriesGrid from "@/components/ServiceCategoriesGrid";
 import PlatformsGrid from "@/components/PlatformsGrid";
@@ -18,6 +19,7 @@ export default function Home() {
   return (
     <>
       <Hero content={home} />
+      <WarningTicker />
       <SkillsMarquee />
       <ServiceCategoriesGrid />
       <PlatformsGrid />

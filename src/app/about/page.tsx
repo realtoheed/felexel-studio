@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import About from "@/components/About";
+import WarningTicker from "@/components/WarningTicker";
 import SkillsMarquee from "@/components/SkillsMarquee";
 import Stats from "@/components/Stats";
 import Expertise from "@/components/Expertise";
@@ -22,6 +23,7 @@ export default function AboutPage() {
   return (
     <div className="pt-40">
       <About />
+      <WarningTicker />
       <SkillsMarquee />
       <Stats stats={home.stats} />
       <Expertise />

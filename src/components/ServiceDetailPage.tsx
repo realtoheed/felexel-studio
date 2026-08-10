@@ -3,6 +3,7 @@ import Image from "next/image";
 import { CheckCircle2, MessageCircle } from "lucide-react";
 import Reveal from "./Reveal";
 import PopIn from "./PopIn";
+import WarningTicker from "./WarningTicker";
 import BlurRevealSection from "./BlurRevealSection";
 import ParallaxImage from "./ParallaxImage";
 import TiltCard from "./TiltCard";
@@ -79,6 +80,8 @@ export default function ServiceDetailPage({ service }: { service: ServiceCategor
           </div>
         </div>
       </section>
+
+      <WarningTicker />
 
       {/* 2. Intro copy */}
       <section className="max-w-[820px] mx-auto px-6 py-[100px] text-center">
