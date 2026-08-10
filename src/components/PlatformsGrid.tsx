@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Reveal from "./Reveal";
 import { Icon } from "@/lib/icons";
+import { getBrandIcon } from "@/lib/brandIcons";
 import { getHome } from "@/lib/content";
 
 export default function PlatformsGrid() {
@@ -21,20 +22,40 @@ export default function PlatformsGrid() {
         </p>
       </Reveal>
       <div className="grid grid-cols-2 sm:grid-cols-3 gap-5">
-        {platforms.items.map((p, i) => (
-          <Reveal key={p.label} direction="up" delay={(i % 3) * 0.06}>
-            <div className="flex items-center gap-3.5 bg-surface border border-text-dim/12 rounded-2xl px-5 py-4 transition-colors hover:border-accent/40">
-              <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-text-dim/8 text-accent-3 overflow-hidden">
-                {p.logo ? (
-                  <Image src={p.logo} alt={p.label} width={36} height={36} className="object-contain" />
-                ) : (
-                  <Icon name={p.icon || "sparkles"} size={18} />
-                )}
+        {platforms.items.map((p, i) => {
+          const brand = getBrandIcon(p.label);
+          const BrandIcon = brand?.icon;
+
+          return (
+            <Reveal key={p.label} direction="up" delay={(i % 3) * 0.06}>
+              <div className="flex items-center gap-3.5 bg-surface border border-text-dim/12 rounded-2xl px-5 py-4 transition-all hover:-translate-y-0.5 hover:border-accent/40">
+                <div
+                  className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl overflow-hidden"
+                  style={
+                    !p.logo && brand
+                      ? { background: `${brand.color}1f`, color: brand.color }
+                      : { background: "color-mix(in oklab, var(--text-dim) 8%, transparent)" }
+                  }
+                >
+                  {p.logo ? (
+                    <Image
+                      src={p.logo}
+                      alt={p.label}
+                      width={44}
+                      height={44}
+                      className="object-contain"
+                    />
+                  ) : BrandIcon ? (
+                    <BrandIcon size={22} />
+                  ) : (
+                    <Icon name={p.icon || "sparkles"} size={20} className="text-accent-3" />
+                  )}
+                </div>
+                <span className="font-semibold text-[15px]">{p.label}</span>
               </div>
-              <span className="font-semibold text-[14.5px]">{p.label}</span>
-            </div>
-          </Reveal>
-        ))}
+            </Reveal>
+          );
+        })}
       </div>
     </section>
   );
