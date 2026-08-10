@@ -9,6 +9,26 @@
   }
 }
 
+/* Hero floating-image drift — one keyframe per card since each moves by a
+   different amount. Pure CSS so it runs on the compositor thread instead of
+   competing with scroll handling on the main thread. */
+@keyframes hero-float-0 {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-14px); }
+}
+@keyframes hero-float-1 {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+@keyframes hero-float-2 {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+@keyframes hero-float-3 {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-16px); }
+}
+
 :root {
   --bg: #0a0a0f;
   --surface: #13131c;

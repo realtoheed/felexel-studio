@@ -8,10 +8,10 @@ import PopIn from "./PopIn";
 import type { HomeContent } from "@/lib/content";
 
 const FLOAT_POSITIONS = [
-  { className: "top-[14%] left-[4%] w-36 h-44 -rotate-6", float: [0, -14, 0], duration: 6 },
-  { className: "top-[8%] right-[6%] w-32 h-40 rotate-6", float: [0, -10, 0], duration: 7 },
-  { className: "bottom-[10%] left-[10%] w-28 h-36 rotate-3", float: [0, -12, 0], duration: 5.5 },
-  { className: "bottom-[16%] right-[3%] w-32 h-40 -rotate-3", float: [0, -16, 0], duration: 6.5 },
+  { className: "top-[14%] left-[4%] w-36 h-44 -rotate-6", duration: 6 },
+  { className: "top-[8%] right-[6%] w-32 h-40 rotate-6", duration: 7 },
+  { className: "bottom-[10%] left-[10%] w-28 h-36 rotate-3", duration: 5.5 },
+  { className: "bottom-[16%] right-[3%] w-32 h-40 -rotate-3", duration: 6.5 },
 ];
 
 export default function Hero({ content }: { content: HomeContent }) {
@@ -102,20 +102,18 @@ export default function Hero({ content }: { content: HomeContent }) {
             <motion.div
               key={img.src}
               initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1, y: pos.float }}
-              transition={{
-                opacity: { duration: 0.8, delay: 0.4 + i * 0.1 },
-                scale: { duration: 0.8, delay: 0.4 + i * 0.1 },
-                y: {
-                  duration: pos.duration,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                  delay: i * 0.3,
-                },
-              }}
-              className={`absolute z-0 ${pos.className} rounded-2xl overflow-hidden border border-text-dim/15 shadow-2xl`}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.8, delay: 0.4 + i * 0.1 }}
+              className={`absolute z-0 ${pos.className}`}
             >
-              <Image src={img.src} alt={img.alt} fill sizes="150px" className="object-cover" />
+              <div
+                className="relative h-full w-full rounded-2xl overflow-hidden border border-text-dim/15 shadow-2xl"
+                style={{
+                  animation: `hero-float-${i} ${pos.duration}s ease-in-out ${i * 0.3}s infinite`,
+                }}
+              >
+                <Image src={img.src} alt={img.alt} fill sizes="150px" className="object-cover" />
+              </div>
             </motion.div>
           );
         })}
