@@ -1,0 +1,25 @@
+{
+  "columns": [
+    {
+      "heading": "Company",
+      "links": [
+        { "label": "About Us", "href": "/about" },
+        { "label": "Our Portfolio", "href": "/portfolio" },
+        { "label": "Testimonials", "href": "/testimonials" },
+        { "label": "Our Packages", "href": "/packages" },
+        { "label": "Blog", "href": "/blog" }
+      ]
+    },
+    {
+      "heading": "Legal",
+      "links": [
+        { "label": "Terms & Conditions", "href": "/terms" },
+        { "label": "Privacy Policy", "href": "/privacy" },
+        { "label": "Verify an Artist", "href": "/affiliated-artist" }
+      ]
+    }
+  ],
+  "contactHeading": "Contact",
+  "contactLabel": "Contact Us",
+  "whatsappLabel": "WhatsApp"
+}

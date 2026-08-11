@@ -3,20 +3,20 @@ import { Icon } from "@/lib/icons";
 import Reveal from "./Reveal";
 import PackageGroupCard from "./PackageGroupCard";
 import {
-  PACKAGE_CATEGORIES,
   getMisc,
+  getPackageCategories,
   getPackageGroupsByCategory,
   getServices,
   getWhatsappLink,
 } from "@/lib/content";
 
 export default function Packages() {
-  const { paymentNote } = getMisc();
+  const { paymentNote, fursuitsQuoteBlock } = getMisc();
   const services = getServices();
 
   return (
     <section className="max-w-[1200px] mx-auto px-6 pb-[60px]">
-      {PACKAGE_CATEGORIES.map((cat) => {
+      {getPackageCategories().map((cat) => {
         const groups = getPackageGroupsByCategory(cat.slug);
         if (groups.length === 0) return null;
         const service = services.find((s) => s.slug === cat.slug);
@@ -79,18 +79,18 @@ export default function Packages() {
       <div id="fursuits-plushies" className="scroll-mt-28 pt-16">
         <Reveal direction="up">
           <div className="bg-surface border border-text-dim/12 rounded-[20px] p-8 md:p-10 text-center">
-            <h2 className="text-[clamp(22px,3vw,30px)] font-semibold mb-2">Fursuits & Plushies</h2>
+            <h2 className="text-[clamp(22px,3vw,30px)] font-semibold mb-2">
+              {fursuitsQuoteBlock.title}
+            </h2>
             <p className="text-text-dim text-[14.5px] max-w-[520px] mx-auto mb-6">
-              Every fursuit and plushie is handmade to order, so pricing depends
-              on size, materials and detail. Message us with your character
-              design and we&apos;ll send a custom quote.
+              {fursuitsQuoteBlock.body}
             </p>
             <div className="flex gap-3 justify-center flex-wrap">
               <Link
                 href="/services/fursuits-plushies"
                 className="inline-flex items-center justify-center rounded-full px-6 py-3 text-[14px] font-semibold border border-text-dim/25 hover:border-accent hover:text-accent transition-colors"
               >
-                View Fursuits & Plushies service
+                {fursuitsQuoteBlock.primaryCtaLabel}
               </Link>
               <a
                 href={getWhatsappLink()}
@@ -98,7 +98,7 @@ export default function Packages() {
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center rounded-full px-6 py-3 text-[14px] font-semibold text-white grad-bg shadow-[0_8px_30px_-8px_rgba(139,92,246,0.6)] transition-transform hover:-translate-y-0.5"
               >
-                Get a Custom Quote
+                {fursuitsQuoteBlock.secondaryCtaLabel}
               </a>
             </div>
           </div>

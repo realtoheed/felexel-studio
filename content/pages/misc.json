@@ -49,5 +49,27 @@
       { "icon": "credit-card", "label": "Mastercard" },
       { "icon": "landmark", "label": "Bank Transfer" }
     ]
+  },
+  "packageCategories": [
+    { "slug": "animation", "label": "Animation", "blurb": "2D & 3D character and scene animation." },
+    { "slug": "vtuber-models", "label": "VTuber Models", "blurb": "VTuber models, PNGTuber assets & animated emotes." },
+    { "slug": "graphic-design", "label": "Graphic Design", "blurb": "Logos, banners, panels, badges & emotes." },
+    { "slug": "comic-services", "label": "Comic Services", "blurb": "Character and scene illustration." }
+  ],
+  "fursuitsQuoteBlock": {
+    "title": "Fursuits & Plushies",
+    "body": "Every fursuit and plushie is handmade to order, so pricing depends on size, materials and detail. Message us with your character design and we'll send a custom quote.",
+    "primaryCtaLabel": "View Fursuits & Plushies service",
+    "secondaryCtaLabel": "Get a Custom Quote"
+  },
+  "exploreCta": {
+    "eyebrow": "EXPLORE",
+    "title": "Ready to see more?",
+    "links": [
+      { "label": "Our Services", "href": "/services", "desc": "Design, animation & web development." },
+      { "label": "Portfolio", "href": "/portfolio", "desc": "See a glimpse of our recent work." },
+      { "label": "Packages", "href": "/packages", "desc": "Simple, flexible pricing plans." },
+      { "label": "Contact Us", "href": "/contact", "desc": "Start your project with us today." }
+    ]
   }
 }

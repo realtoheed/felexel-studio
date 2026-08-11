@@ -170,6 +170,59 @@ collections:
               default: 'USD',
             }
 
+      - name: navigation
+        label: 'Navigation Menu'
+        file: content/settings/navigation.json
+        description: >-
+          The links shown in the top navbar (and mobile menu). "Services"
+          always appears as its own dropdown right after the first two
+          links here, since it lists your live services automatically —
+          it isn't editable as a plain link.
+        fields:
+          - name: links
+            label: 'Menu links'
+            label_singular: 'Link'
+            widget: list
+            collapsed: false
+            summary: '{{fields.label}} — {{fields.href}}'
+            hint: 'The first two links appear before the "Services" dropdown; everything else appears after it.'
+            fields:
+              - { name: label, label: 'Text shown', widget: string }
+              - { name: href, label: 'Links to', widget: string, hint: 'e.g. /about or /contact' }
+          - { name: ctaLabel, label: 'Button text (top-right)', widget: string }
+          - { name: ctaHref, label: 'Button links to', widget: string }
+
+      - name: footer
+        label: 'Footer Menu'
+        file: content/settings/footer.json
+        description: 'The link columns shown in the site footer.'
+        fields:
+          - name: columns
+            label: 'Footer columns'
+            label_singular: 'Column'
+            widget: list
+            collapsed: false
+            summary: '{{fields.heading}}'
+            fields:
+              - { name: heading, label: 'Column heading', widget: string }
+              - name: links
+                label: 'Links'
+                label_singular: 'Link'
+                widget: list
+                collapsed: false
+                summary: '{{fields.label}} — {{fields.href}}'
+                fields:
+                  - { name: label, label: 'Text shown', widget: string }
+                  - { name: href, label: 'Links to', widget: string }
+          - {
+              name: contactHeading,
+              label: 'Contact column heading',
+              widget: string,
+              hint: 'The last footer column (Contact Us, WhatsApp, email) is structural, but its heading and link text are editable here.',
+            }
+          - { name: contactLabel, label: '"Contact page" link text', widget: string }
+          - { name: whatsappLabel, label: '"WhatsApp" link text', widget: string }
+
   # ─────────────────────────────────────────────────────────────
   # PAGES — the copy on each page
   # ─────────────────────────────────────────────────────────────
@@ -256,7 +309,7 @@ collections:
                 collapsed: false
                 summary: '{{fields.title}}'
                 fields:
-                  - { name: icon, label: 'Icon', widget: select, options: ['badge-check', 'book-open', 'brush', 'camera', 'cast', 'clapperboard', 'clock', 'code', 'credit-card', 'file-search', 'landmark', 'layers', 'life-buoy', 'mail', 'message-circle', 'palette', 'pen-tool', 'radio', 'shapes', 'shield-check', 'sliders', 'smile', 'sparkles', 'star', 'tv', 'video', 'wallet', 'wand', 'play-circle'] }
+                  - { name: icon, label: 'Icon', widget: select, options: &icon_options ['badge-check', 'book-open', 'brush', 'camera', 'cast', 'clapperboard', 'clock', 'code', 'credit-card', 'file-search', 'landmark', 'layers', 'life-buoy', 'mail', 'message-circle', 'palette', 'pen-tool', 'radio', 'shapes', 'shield-check', 'sliders', 'smile', 'sparkles', 'star', 'tv', 'video', 'wallet', 'wand', 'play-circle'] }
                   - { name: title, label: 'Title', widget: string }
                   - { name: desc, label: 'Description', widget: text }
           - name: process
@@ -283,7 +336,7 @@ collections:
             collapsed: true
             summary: '{{fields.label}}'
             fields:
-              - { name: icon, label: 'Icon', widget: select, options: ['badge-check', 'book-open', 'brush', 'camera', 'cast', 'clapperboard', 'clock', 'code', 'credit-card', 'file-search', 'landmark', 'layers', 'life-buoy', 'mail', 'message-circle', 'palette', 'pen-tool', 'radio', 'shapes', 'shield-check', 'sliders', 'smile', 'sparkles', 'star', 'tv', 'video', 'wallet', 'wand', 'play-circle'] }
+              - { name: icon, label: 'Icon', widget: select, options: *icon_options }
               - { name: label, label: 'Text', widget: string }
           - name: support
             label: 'Support banner'
@@ -323,7 +376,7 @@ collections:
                       name: icon,
                       label: 'Fallback icon (used if no logo uploaded)',
                       widget: select,
-                      options: ['badge-check', 'book-open', 'brush', 'camera', 'cast', 'clapperboard', 'clock', 'code', 'credit-card', 'file-search', 'landmark', 'layers', 'life-buoy', 'mail', 'message-circle', 'palette', 'pen-tool', 'radio', 'shapes', 'shield-check', 'sliders', 'smile', 'sparkles', 'star', 'tv', 'video', 'wallet', 'wand', 'play-circle'],
+                      options: *icon_options,
                     }
                   - { name: label, label: 'Platform name', widget: string }
 
@@ -362,13 +415,13 @@ collections:
                 collapsed: false
                 summary: '{{fields.label}}'
                 fields:
-                  - { name: icon, label: 'Icon', widget: select, options: ['badge-check', 'book-open', 'brush', 'camera', 'cast', 'clapperboard', 'clock', 'code', 'credit-card', 'file-search', 'landmark', 'layers', 'life-buoy', 'mail', 'message-circle', 'palette', 'pen-tool', 'radio', 'shapes', 'shield-check', 'sliders', 'smile', 'sparkles', 'star', 'tv', 'video', 'wallet', 'wand', 'play-circle'] }
+                  - { name: icon, label: 'Icon', widget: select, options: *icon_options }
                   - { name: label, label: 'Label', widget: string }
 
       - name: misc
-        label: 'Other Page Headings'
+        label: 'Other Page Content'
         file: content/pages/misc.json
-        description: 'Headings for the Services, Portfolio, Packages, Testimonials, Contact, Verify Artist and Blog pages.'
+        description: 'Headings for the Services, Portfolio, Packages, Testimonials, Contact, Verify Artist and Blog pages, plus the payment info box, package category sections and the "Ready to see more?" cards.'
         fields:
           - name: servicesHero
             label: 'Services page heading'
@@ -432,7 +485,7 @@ collections:
             collapsed: true
             summary: '{{fields.title}}'
             fields:
-              - { name: icon, label: 'Icon', widget: select, options: ['badge-check', 'book-open', 'brush', 'camera', 'cast', 'clapperboard', 'clock', 'code', 'credit-card', 'file-search', 'landmark', 'layers', 'life-buoy', 'mail', 'message-circle', 'palette', 'pen-tool', 'radio', 'shapes', 'shield-check', 'sliders', 'smile', 'sparkles', 'star', 'tv', 'video', 'wallet', 'wand', 'play-circle'] }
+              - { name: icon, label: 'Icon', widget: select, options: *icon_options }
               - { name: title, label: 'Title', widget: string }
               - { name: desc, label: 'Description', widget: text }
           - name: blogHero
@@ -457,8 +510,57 @@ collections:
                 collapsed: false
                 summary: '{{fields.label}}'
                 fields:
-                  - { name: icon, label: 'Icon', widget: select, options: ['badge-check', 'book-open', 'brush', 'camera', 'cast', 'clapperboard', 'clock', 'code', 'credit-card', 'file-search', 'landmark', 'layers', 'life-buoy', 'mail', 'message-circle', 'palette', 'pen-tool', 'radio', 'shapes', 'shield-check', 'sliders', 'smile', 'sparkles', 'star', 'tv', 'video', 'wallet', 'wand', 'play-circle'] }
+                  - { name: icon, label: 'Icon', widget: select, options: *icon_options }
                   - { name: label, label: 'Label', widget: string }
+          - name: packageCategories
+            label: 'Packages page — category sections'
+            label_singular: 'Category'
+            widget: list
+            collapsed: true
+            summary: '{{fields.label}}'
+            hint: >-
+              These 4 categories group the package pricing on the Packages
+              page. The "slug" must exactly match one of the category
+              options when editing a package's pricing (Package Pricing
+              collection) — don't change existing slugs or that pricing
+              will stop showing under the right heading.
+            fields:
+              - {
+                  name: slug,
+                  label: 'Slug (must match Package Pricing category)',
+                  widget: select,
+                  options: ['animation', 'vtuber-models', 'graphic-design', 'comic-services'],
+                }
+              - { name: label, label: 'Heading', widget: string }
+              - { name: blurb, label: 'Short description', widget: text }
+          - name: fursuitsQuoteBlock
+            label: 'Fursuits & Plushies (custom quote card)'
+            widget: object
+            collapsed: true
+            hint: 'Fursuits & Plushies pricing varies too much for fixed packages, so this always shows a "get a custom quote" card instead.'
+            fields:
+              - { name: title, label: 'Heading', widget: string }
+              - { name: body, label: 'Explanation', widget: text }
+              - { name: primaryCtaLabel, label: 'First button text', widget: string }
+              - { name: secondaryCtaLabel, label: 'Second button text', widget: string }
+          - name: exploreCta
+            label: '"Ready to see more?" section'
+            widget: object
+            collapsed: true
+            hint: 'Shown near the bottom of several pages (Testimonials, Packages, Verify Artist and more).'
+            fields:
+              - { name: eyebrow, label: 'Small label', widget: string }
+              - { name: title, label: 'Heading', widget: string }
+              - name: links
+                label: 'Cards'
+                label_singular: 'Card'
+                widget: list
+                collapsed: false
+                summary: '{{fields.label}}'
+                fields:
+                  - { name: label, label: 'Title', widget: string }
+                  - { name: href, label: 'Links to', widget: string }
+                  - { name: desc, label: 'Description', widget: string }
 
       - name: terms
         label: 'Terms & Conditions'
@@ -515,7 +617,7 @@ collections:
           widget: string,
           hint: 'Used mid-sentence, e.g. "Ready to start your animation project?"',
         }
-      - { name: icon, label: 'Menu icon', widget: select, options: ['badge-check', 'book-open', 'brush', 'camera', 'cast', 'clapperboard', 'clock', 'code', 'credit-card', 'file-search', 'landmark', 'layers', 'life-buoy', 'mail', 'message-circle', 'palette', 'pen-tool', 'radio', 'shapes', 'shield-check', 'sliders', 'smile', 'sparkles', 'star', 'tv', 'video', 'wallet', 'wand', 'play-circle'] }
+      - { name: icon, label: 'Menu icon', widget: select, options: *icon_options }
       - {
           name: navDesc,
           label: 'Menu description',

@@ -8,7 +8,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ThemeProvider from "@/components/ThemeProvider";
 import IdentityRedirect from "@/components/IdentityRedirect";
-import { getPayments, getServices, getSite, getWhatsappLink } from "@/lib/content";
+import { getNavigation, getPayments, getServices, getSite, getWhatsappLink } from "@/lib/content";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -59,6 +59,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
               siteName={site.siteName}
               payments={payments}
               whatsappLink={getWhatsappLink()}
+              navigation={getNavigation()}
             />
             <main>{children}</main>
             <Footer />

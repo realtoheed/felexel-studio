@@ -7,21 +7,9 @@ import { motion, AnimatePresence } from "framer-motion";
 import Logo from "./Logo";
 import ThemeToggle from "./ThemeToggle";
 import PayNowButton from "./PayNowButton";
-import type { PaymentSettings } from "@/lib/content";
+import type { NavigationSettings, PaymentSettings } from "@/lib/content";
 
 export type NavService = { slug: string; label: string; navDesc: string };
-
-const LINKS = [
-  { href: "/", label: "Home" },
-  { href: "/about", label: "About" },
-  { href: "/portfolio", label: "Portfolio" },
-  { href: "/packages", label: "Packages" },
-  { href: "/blog", label: "Blog" },
-  { href: "/affiliated-artist", label: "Verify Artist" },
-  { href: "/contact", label: "Contact" },
-];
-
-const SECONDARY_LINKS = LINKS.slice(2);
 
 export default function Navbar({
   services,
@@ -30,6 +18,7 @@ export default function Navbar({
   siteName,
   payments,
   whatsappLink,
+  navigation,
 }: {
   services: NavService[];
   logoDark: string;
@@ -37,6 +26,7 @@ export default function Navbar({
   siteName: string;
   payments: PaymentSettings;
   whatsappLink: string;
+  navigation: NavigationSettings;
 }) {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
@@ -44,6 +34,11 @@ export default function Navbar({
   const [servicesOpen, setServicesOpen] = useState(false);
   const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const pathname = usePathname();
+
+  // The "Services" mega-menu is structural (it renders the live services
+  // list with a dropdown, not a plain link) so it always sits right after
+  // the first two editor-defined links, wherever those point.
+  const [firstLink, secondLink, ...restLinks] = navigation.links;
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
@@ -84,22 +79,26 @@ export default function Navbar({
         />
 
         <nav className="hidden lg:flex items-center gap-5">
-          <Link
-            href="/"
-            className={`text-[13.5px] transition-colors whitespace-nowrap ${
-              pathname === "/" ? "text-text" : "text-text-dim hover:text-text"
-            }`}
-          >
-            Home
-          </Link>
-          <Link
-            href="/about"
-            className={`text-[13.5px] transition-colors whitespace-nowrap ${
-              pathname.startsWith("/about") ? "text-text" : "text-text-dim hover:text-text"
-            }`}
-          >
-            About
-          </Link>
+          {firstLink && (
+            <Link
+              href={firstLink.href}
+              className={`text-[13.5px] transition-colors whitespace-nowrap ${
+                pathname === firstLink.href ? "text-text" : "text-text-dim hover:text-text"
+              }`}
+            >
+              {firstLink.label}
+            </Link>
+          )}
+          {secondLink && (
+            <Link
+              href={secondLink.href}
+              className={`text-[13.5px] transition-colors whitespace-nowrap ${
+                pathname.startsWith(secondLink.href) ? "text-text" : "text-text-dim hover:text-text"
+              }`}
+            >
+              {secondLink.label}
+            </Link>
+          )}
 
           <div
             className="relative"
@@ -156,7 +155,7 @@ export default function Navbar({
             </AnimatePresence>
           </div>
 
-          {SECONDARY_LINKS.map((l) => {
+          {restLinks.map((l) => {
             const active = pathname.startsWith(l.href);
             return (
               <Link
@@ -175,10 +174,10 @@ export default function Navbar({
         <div className="hidden lg:flex items-center gap-3">
           <ThemeToggle />
           <Link
-            href="/contact"
+            href={navigation.ctaHref}
             className="inline-flex items-center justify-center rounded-full border border-text-dim/30 px-[18px] py-[10px] text-[13.5px] font-semibold hover:border-accent hover:text-accent transition-colors whitespace-nowrap"
           >
-            Get Started
+            {navigation.ctaLabel}
           </Link>
           <PayNowButton payments={payments} whatsappLink={whatsappLink} />
         </div>
@@ -207,20 +206,24 @@ export default function Navbar({
             className="lg:hidden overflow-hidden bg-bg/97 backdrop-blur-xl"
           >
             <div className="flex flex-col gap-1 p-6">
-              <Link
-                href="/"
-                onClick={() => setOpen(false)}
-                className="text-sm text-text-dim hover:text-text py-2"
-              >
-                Home
-              </Link>
-              <Link
-                href="/about"
-                onClick={() => setOpen(false)}
-                className="text-sm text-text-dim hover:text-text py-2"
-              >
-                About
-              </Link>
+              {firstLink && (
+                <Link
+                  href={firstLink.href}
+                  onClick={() => setOpen(false)}
+                  className="text-sm text-text-dim hover:text-text py-2"
+                >
+                  {firstLink.label}
+                </Link>
+              )}
+              {secondLink && (
+                <Link
+                  href={secondLink.href}
+                  onClick={() => setOpen(false)}
+                  className="text-sm text-text-dim hover:text-text py-2"
+                >
+                  {secondLink.label}
+                </Link>
+              )}
 
               <button
                 onClick={() => setMobileServicesOpen((v) => !v)}
@@ -273,7 +276,7 @@ export default function Navbar({
                 )}
               </AnimatePresence>
 
-              {SECONDARY_LINKS.map((l) => (
+              {restLinks.map((l) => (
                 <Link
                   key={l.href}
                   href={l.href}

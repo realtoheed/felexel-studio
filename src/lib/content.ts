@@ -39,6 +39,19 @@ export type PaymentSettings = {
   paypalCurrency: string;
 };
 
+export type NavigationSettings = {
+  links: { label: string; href: string }[];
+  ctaLabel: string;
+  ctaHref: string;
+};
+
+export type FooterSettings = {
+  columns: { heading: string; links: { label: string; href: string }[] }[];
+  contactHeading: string;
+  contactLabel: string;
+  whatsappLabel: string;
+};
+
 export type ServiceCategory = {
   order: number;
   slug: string;
@@ -94,38 +107,31 @@ export type PackageGroup = {
 export type CategoryTheme = { accent: string; accent2: string };
 
 /**
- * Maps a package group's `category` (and a service's slug) to the section
- * shown on /packages. Keep in sync with the `category` select options in
- * public/admin/config.yml and with the service slugs in content/services/*.
- * Each category gets its own accent pair so the /packages page reads as
- * distinct sections rather than one long repeated card list.
+ * Accent colors per package category — a design decision, not editorial
+ * content, so it stays in code. Labels/blurbs are CMS-editable (misc.json
+ * "packageCategories"); slugs here must match both the `category` select
+ * options in public/admin/config.yml and the service slugs in
+ * content/services/*, so the color map is keyed by slug rather than order.
  */
-export const PACKAGE_CATEGORIES: { slug: string; label: string; blurb: string; theme: CategoryTheme }[] = [
-  {
-    slug: "animation",
-    label: "Animation",
-    blurb: "2D & 3D character and scene animation.",
-    theme: { accent: "#a855f7", accent2: "#7c3aed" },
-  },
-  {
-    slug: "vtuber-models",
-    label: "VTuber Models",
-    blurb: "VTuber models, PNGTuber assets & animated emotes.",
-    theme: { accent: "#3b82f6", accent2: "#06b6d4" },
-  },
-  {
-    slug: "graphic-design",
-    label: "Graphic Design",
-    blurb: "Logos, banners, panels, badges & emotes.",
-    theme: { accent: "#ec4899", accent2: "#f43f5e" },
-  },
-  {
-    slug: "comic-services",
-    label: "Comic Services",
-    blurb: "Character and scene illustration.",
-    theme: { accent: "#f59e0b", accent2: "#f97316" },
-  },
-];
+const CATEGORY_THEME_BY_SLUG: Record<string, CategoryTheme> = {
+  animation: { accent: "#a855f7", accent2: "#7c3aed" },
+  "vtuber-models": { accent: "#3b82f6", accent2: "#06b6d4" },
+  "graphic-design": { accent: "#ec4899", accent2: "#f43f5e" },
+  "comic-services": { accent: "#f59e0b", accent2: "#f97316" },
+};
+const DEFAULT_CATEGORY_THEME: CategoryTheme = { accent: "#a855f7", accent2: "#7c3aed" };
+
+/**
+ * Editor-managed labels/blurbs for each package category, merged with the
+ * fixed theme colors above. Falls back to a sensible default theme if an
+ * editor adds a category slug with no matching color (rather than crashing).
+ */
+export function getPackageCategories(): { slug: string; label: string; blurb: string; theme: CategoryTheme }[] {
+  return getMisc().packageCategories.map((c) => ({
+    ...c,
+    theme: CATEGORY_THEME_BY_SLUG[c.slug] ?? DEFAULT_CATEGORY_THEME,
+  }));
+}
 
 export type FaqItem = { order: number; question: string; answer: string };
 
@@ -203,6 +209,18 @@ export type MiscContent = {
     body: string;
     methods: { icon: string; label: string }[];
   };
+  packageCategories: { slug: string; label: string; blurb: string }[];
+  fursuitsQuoteBlock: {
+    title: string;
+    body: string;
+    primaryCtaLabel: string;
+    secondaryCtaLabel: string;
+  };
+  exploreCta: {
+    eyebrow: string;
+    title: string;
+    links: { label: string; href: string; desc: string }[];
+  };
 };
 
 export type LegalPage = { title: string; eyebrow: string; html: string };
@@ -242,6 +260,8 @@ export const getSite = () => readJson<SiteSettings>("settings", "site.json");
 export const getContact = () => readJson<ContactSettings>("settings", "contact.json");
 export const getSocial = () => readJson<SocialSettings>("settings", "social.json");
 export const getPayments = () => readJson<PaymentSettings>("settings", "payments.json");
+export const getNavigation = () => readJson<NavigationSettings>("settings", "navigation.json");
+export const getFooter = () => readJson<FooterSettings>("settings", "footer.json");
 export const getHome = () => readJson<HomeContent>("pages", "home.json");
 export const getAbout = () => readJson<AboutContent>("pages", "about.json");
 export const getMisc = () => readJson<MiscContent>("pages", "misc.json");

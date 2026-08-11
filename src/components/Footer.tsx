@@ -6,7 +6,7 @@ import {
   YoutubeIcon,
   FacebookIcon,
 } from "./SocialIcons";
-import { getContact, getSite, getSocial, getWhatsappLink } from "@/lib/content";
+import { getContact, getFooter, getSite, getSocial, getWhatsappLink } from "@/lib/content";
 
 const SOCIAL_ICONS: Record<string, typeof InstagramIcon> = {
   instagram: InstagramIcon,
@@ -25,6 +25,7 @@ const SOCIAL_LABELS: Record<string, string> = {
 export default function Footer() {
   const site = getSite();
   const contact = getContact();
+  const footer = getFooter();
   const socials = getSocial().links.filter((s) => s.enabled && s.url);
 
   return (
@@ -59,43 +60,24 @@ export default function Footer() {
             </div>
           )}
         </div>
+        {footer.columns.map((col) => (
+          <div key={col.heading}>
+            <h4 className="text-sm font-semibold mb-4 text-white">{col.heading}</h4>
+            {col.links.map((l) => (
+              <Link
+                key={l.href}
+                href={l.href}
+                className="block text-text-dim text-sm mb-2.5 hover:text-accent-3"
+              >
+                {l.label}
+              </Link>
+            ))}
+          </div>
+        ))}
         <div>
-          <h4 className="text-sm font-semibold mb-4 text-white">Company</h4>
-          <Link href="/about" className="block text-text-dim text-sm mb-2.5 hover:text-accent-3">
-            About Us
-          </Link>
-          <Link href="/portfolio" className="block text-text-dim text-sm mb-2.5 hover:text-accent-3">
-            Our Portfolio
-          </Link>
-          <Link href="/testimonials" className="block text-text-dim text-sm mb-2.5 hover:text-accent-3">
-            Testimonials
-          </Link>
-          <Link href="/packages" className="block text-text-dim text-sm mb-2.5 hover:text-accent-3">
-            Our Packages
-          </Link>
-          <Link href="/blog" className="block text-text-dim text-sm mb-2.5 hover:text-accent-3">
-            Blog
-          </Link>
-        </div>
-        <div>
-          <h4 className="text-sm font-semibold mb-4 text-white">Legal</h4>
-          <Link href="/terms" className="block text-text-dim text-sm mb-2.5 hover:text-accent-3">
-            Terms &amp; Conditions
-          </Link>
-          <Link href="/privacy" className="block text-text-dim text-sm mb-2.5 hover:text-accent-3">
-            Privacy Policy
-          </Link>
-          <Link
-            href="/affiliated-artist"
-            className="block text-text-dim text-sm mb-2.5 hover:text-accent-3"
-          >
-            Verify an Artist
-          </Link>
-        </div>
-        <div>
-          <h4 className="text-sm font-semibold mb-4 text-white">Contact</h4>
+          <h4 className="text-sm font-semibold mb-4 text-white">{footer.contactHeading}</h4>
           <Link href="/contact" className="block text-text-dim text-sm mb-2.5 hover:text-accent-3">
-            Contact Us
+            {footer.contactLabel}
           </Link>
           <a
             href={getWhatsappLink()}
@@ -103,7 +85,7 @@ export default function Footer() {
             rel="noopener noreferrer"
             className="block text-text-dim text-sm mb-2.5 hover:text-accent-3"
           >
-            WhatsApp
+            {footer.whatsappLabel}
           </a>
           <a
             href={`mailto:${contact.contactEmail}`}
