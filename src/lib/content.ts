@@ -17,6 +17,8 @@ export type SiteSettings = {
   logoDark: string;
   logoLight: string;
   footerLogoDark: string;
+  favicon: string;
+  ogImage: string;
   footerTagline: string;
   copyright: string;
   warningEnabled: boolean;

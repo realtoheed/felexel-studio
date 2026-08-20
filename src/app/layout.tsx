@@ -28,6 +28,14 @@ export function generateMetadata(): Metadata {
     metadataBase: site.siteUrl ? new URL(site.siteUrl) : undefined,
     title: site.metaTitle,
     description: site.metaDescription,
+    icons: site.favicon ? { icon: site.favicon } : undefined,
+    openGraph: site.ogImage
+      ? {
+          title: site.metaTitle,
+          description: site.metaDescription,
+          images: [site.ogImage],
+        }
+      : undefined,
   };
 }
 

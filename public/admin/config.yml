@@ -70,6 +70,18 @@ collections:
               widget: image,
               hint: 'The footer is always dark, so use the dark-mode version here.',
             }
+          - {
+              name: favicon,
+              label: 'Browser tab icon (favicon)',
+              widget: image,
+              hint: 'Small square image, at least 64×64px. Shows in the browser tab and bookmarks.',
+            }
+          - {
+              name: ogImage,
+              label: 'Social share preview image',
+              widget: image,
+              hint: 'Shown when your site is linked on WhatsApp, Facebook, Twitter/X, etc. Landscape image, at least 1200×630px works best.',
+            }
           - { name: footerTagline, label: 'Footer tagline', widget: text }
           - { name: copyright, label: 'Copyright line', widget: string }
           - {
