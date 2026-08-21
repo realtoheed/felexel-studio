@@ -9,8 +9,8 @@ backend:
     deleteMedia: 'Delete "{{path}}"'
 
 # Lets you preview edits on a Netlify deploy preview before they go live.
-site_url: https://felexel.netlify.app
-display_url: https://felexel.netlify.app
+site_url: https://felexelcreativesolutions.com
+display_url: https://felexelcreativesolutions.com
 logo_url: /logo.png
 
 media_folder: public/images
